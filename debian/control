@@ -1,0 +1,20 @@
+## This file is part of Whonix.
+## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+Source: rads
+Section: misc
+Priority: important
+Maintainer: Patrick Schleizer <adrelanos@riseup.net>
+Build-Depends: debhelper (>= 8), faketime, config-package-dev (>= 5.1)
+Homepage: https://github.com/Whonix/rads
+Vcs-Browser: https://github.com/Whonix/rads
+Vcs-Git: https://github.com/Whonix/rads.git
+Standards-Version: 3.9.4
+
+Package: rads
+Architecture: all
+Depends: ${misc:Depends}, anon-shared-helper-scripts, tor
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}
+Description: RAM Adjusted Desktop Starter
