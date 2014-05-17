@@ -76,45 +76,20 @@ colors() {
 } 2>/dev/null ||:
 }
 
-maybe_start_whonixsetup() {
+create_status_file_no_start_x() {
    trap "error_handler_rads" ERR
 
-   ## Checking if Tor has been enabled.
-   ## (For now, always 1 (yes) on Whonix-Workstation, so is skipped on Whonix-Workstation.)
-   ## And if Tor has not been enabled, auto start whonixsetup.
-   ## This function only gets called, if we are not booting into a graphical desktop environment.
-   ## Eventually auto starting whonixsetup in a graphical desktop environment is implemented
-   ## through /etc/xdg/...
+   mkdir --parents "/tmp/rads"
+   touch "/tmp/rads/no_start_x.status"
+   rm --force "/tmp/rads/start_x.status"
+}
 
-   source /usr/lib/whonixcheck/17_check_tor_enabled
-
-   ## disable trap /usr/lib/whonixcheck/17_check_tor_enabled may have enabled
+create_status_file_start_x() {
    trap "error_handler_rads" ERR
 
-   ## Check if Tor is enabled.
-   ## returns: TOR_ENABLED
-   check_tor_enabled_do
-
-   ## disable trap of check_tor_enabled_do
-   trap "error_handler_rads" ERR
-
-   if [ "$TOR_ENABLED" = "0" ]; then
-      ## Sleep, so the following message comes after "waiting for results from timesync"
-      ## and to prevent the background message "waiting for results from timesync" from
-      ## interfering with whonixsetup.
-      sleep 5 &
-      wait "$!" || true
-
-      echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Tor has not been enabled yet. Starting whonixsetup..."
-
-      ## Sleep just for the look and feel, so the following message comes after, so the previous
-      ## message can be read.
-      sleep 5 &
-      wait "$!" || true
-
-      ## This has a sudoers exception in /etc/sudoers.d/whonixsetup.
-      sudo /usr/bin/whonixsetup
-   fi
+   mkdir --parents "/tmp/rads"
+   rm --force "/tmp/rads/no_start_x.status"
+   touch --force "/tmp/rads/start_x.status"
 }
 
 ram-adjusted-desktop-starter() {
@@ -199,7 +174,7 @@ ram-adjusted-desktop-starter() {
 $rads_display_manager configured in /etc/rads.d/ \
 configuration folder does not exist. Not starting a desktop environment."
       fi
-      maybe_start_whonixsetup
+      create_status_file_no_start_x
       exit 0
    fi
 
@@ -209,7 +184,7 @@ configuration folder does not exist. Not starting a desktop environment."
 $x_default_dm_config_file \
 does not exist. Probably no desktop environment installed. Not starting a desktop environment."
       fi
-      maybe_start_whonixsetup
+      create_status_file_no_start_x
       exit 0
    fi
 
@@ -225,16 +200,6 @@ Not starting kdm, already running."
       exit 0
    fi
 
-   if [ "$rads_debug" = "1" ]; then
-      temp="INFO: [RAM Adjusted Desktop Starter] $(/bin/date) | \
-      whoami: $(/usr/bin/whoami) | caller: $0 | path: $PATH"
-      true "$temp"
-      echo "$temp" >> ~/rads
-      chown --recursive user:user ~/rads
-      chmod --recursive g+w ~/rads
-      chmod --recursive o+w ~/rads
-   fi
-
    ## Check how much RAM the system has in total.
    ## Thanks to:
    ## http://stackoverflow.com/a/10277712
@@ -246,7 +211,7 @@ Not starting kdm, already running."
 rads_start_display_manager is set to 0 in /etc/rads.d/ \
 configuration folder, not starting a desktop environment."
       fi
-      maybe_start_whonixsetup
+      create_status_file_no_start_x
       exit 0
    fi
 
@@ -257,7 +222,7 @@ configuration folder, not starting a desktop environment."
 because there is only $total_ram MB total RAM. (A minimum of \
 $rads_minium_ram MB total RAM is configured in /etc/rads.d/ \
 configuration folder.)"
-         maybe_start_whonixsetup
+         create_status_file_no_start_x
          exit 0
       fi
    fi
@@ -319,6 +284,7 @@ here: https://www.whonix.org/wiki/Desktop"
 
          if [ "$service_3_exit_code" = "0" ]; then
             true "INFO: [RAM Adjusted Desktop Starter] Successfully started $rads_display_manager."
+            create_status_file_start_x
          else
             echo "[${red}${bold}ERROR${reset}] [RAM Adjusted Desktop Starter] \
 Could not start $rads_display_manager. Please report this bug!"
@@ -334,7 +300,7 @@ Could not start $rads_display_manager. Please report this bug!"
 (graphical desktop environment) later.
     sudo service $rads_display_manager start"
 
-      maybe_start_whonixsetup
+      create_status_file_no_start_x
       exit 0
    fi
 
