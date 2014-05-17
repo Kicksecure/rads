@@ -89,7 +89,7 @@ create_status_file_start_x() {
 
    mkdir --parents "/tmp/rads"
    rm --force "/tmp/rads/no_start_x.status"
-   touch --force "/tmp/rads/start_x.status"
+   touch "/tmp/rads/start_x.status"
 }
 
 ram-adjusted-desktop-starter() {
