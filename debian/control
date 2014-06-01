@@ -14,7 +14,7 @@ Standards-Version: 3.9.4
 
 Package: rads
 Architecture: all
-Depends: ${misc:Depends}
+Depends: sudo, ${misc:Depends}
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
 Description: RAM Adjusted Desktop Starter
