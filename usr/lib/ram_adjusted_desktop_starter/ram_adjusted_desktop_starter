@@ -253,11 +253,16 @@ here: https://www.whonix.org/wiki/Desktop"
 
    ## Fallback.
    sleep_1_exit_code="0"
-
-   ## Returns 0, if sleep was not terminated (CTRL + C not pressed) , otherwise 1.
-   ## This is implemented in a separate script, because `sh` does not support `trap`s.
-   sleep "$rads_wait_seconds" &
-   wait "$!" || { sleep_1_exit_code="$?" ; true; };
+   if [ "$rads_wait" = "0" ]; then
+      if [ "$rads_debug" = "1" ]; then
+         true "INFO: Waiting feature disabled."
+      fi
+   else
+      ## Returns 0, if sleep was not terminated (CTRL + C not pressed) , otherwise 1.
+      ## This is implemented in a separate script, because `sh` does not support `trap`s.
+      sleep "$rads_wait_seconds" &
+      wait "$!" || { sleep_1_exit_code="$?" ; true; };
+   fi
 
    if [ "$sleep_1_exit_code" = "0" ]; then
       service_2_exit_code="0"
