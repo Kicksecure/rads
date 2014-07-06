@@ -4,7 +4,7 @@
 ## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
-#echo "$0 INFO: Begin..."
+#echo "$BASH_SOURCE INFO: Begin..."
 
 ## Technical comment:
 ## rads has a feature, which determines whether the display manager (dm)
@@ -21,10 +21,10 @@
 ## - configuration file: /etc/rads.d/30_desktop_default
 
 if [ "$(id -u)" != "0" ]; then
-    echo "$0 ERROR: This must be run as root (sudo)!"
+    echo "$BASH_SOURCE ERROR: This must be run as root (sudo)!"
     exit 1
 else
-    true "$0 INFO: Script running as root."
+    true "$BASH_SOURCE INFO: Script running as root."
 fi
 
 for i in /etc/rads.d/*; do
@@ -43,7 +43,7 @@ for i in /etc/rads.d/*; do
       bash_n_exit_code="0"
       bash -n "$i" || { bash_n_exit_code="$?" ; true; };
       if [ ! "$bash_n_exit_code" = "0" ]; then
-         echo "$0 ERROR: invalid rads config file $i." >&2
+         echo "$BASH_SOURCE ERROR: invalid rads config file $i." >&2
          exit 1
       fi
       source "$i"
@@ -51,16 +51,16 @@ for i in /etc/rads.d/*; do
 done
 
 if [ ! "$rads_autostart_decision_feature" = "1" ]; then
-   echo "$0 INFO: rads_autostart_decision_feature is not set to 1, doing nothing."
+   echo "$BASH_SOURCE INFO: rads_autostart_decision_feature is not set to 1, doing nothing."
    exit 0
 fi
 
 if [ "$rads_disable_rc_d_remove" = "1" ]; then
-   echo "$0 INFO: rads_disable_rc_d_remove is set to 1. Do nothing. Exit."
+   echo "$BASH_SOURCE INFO: rads_disable_rc_d_remove is set to 1. Do nothing. Exit."
    exit 0
 fi
 
-#echo "$0 INFO: Deactivating display manager (kdm, gdm, lightdm, slim, wdm, xdm, nodm) /etc/init.d/ autostart mechanism, since this is handled by rads..."
+#echo "$BASH_SOURCE INFO: Deactivating display manager (kdm, gdm, lightdm, slim, wdm, xdm, nodm) /etc/init.d/ autostart mechanism, since this is handled by rads..."
 
 update-rc.d kdm remove >/dev/null 2>/dev/null
 update-rc.d gdm remove >/dev/null 2>/dev/null
@@ -70,6 +70,6 @@ update-rc.d wdm remove >/dev/null 2>/dev/null
 update-rc.d xdm remove >/dev/null 2>/dev/null
 update-rc.d nodm remove >/dev/null 2>/dev/null
 
-#echo "$0 INFO: Done."
+#echo "$BASH_SOURCE INFO: Done."
 
 exit 0
