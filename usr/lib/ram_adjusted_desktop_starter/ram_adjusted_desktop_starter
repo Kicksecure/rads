@@ -108,6 +108,7 @@ ram-adjusted-desktop-starter() {
             true "skip $i"
             continue
          fi
+         bash -n "$i"
          source "$i"
       fi
    done
