@@ -40,7 +40,12 @@ for i in /etc/rads.d/*; do
          true "skip $i"
          continue
       fi
-      bash -n "$i"
+      bash_n_exit_code="0"
+      bash -n "$i" || { bash_n_exit_code="$?" ; true; };
+      if [ ! "$bash_n_exit_code" = "0" ]; then
+         echo "$0 ERROR: invalid rads config file $i." >&2
+         exit 1
+      fi
       source "$i"
    fi
 done
