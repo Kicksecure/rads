@@ -1,5 +1,3 @@
-# Package is not intended for Debian.
-rads: new-package-should-close-itp-bug
 # This is how rads works. It disables autostart of conventional display
 # managers when installed, hooks into the boot process by using /etc/profile.d,
 # and re-enables conventional display managers when uninstalled.
