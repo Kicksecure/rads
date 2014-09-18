@@ -1,3 +1,9 @@
+rads (3:0.4-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Patrick Schleizer <adrelanos@riseup.net>  Thu, 18 Sep 2014 16:15:32 +0000
+
 rads (3:0.3-1) unstable; urgency=low
 
   * New upstream version.
