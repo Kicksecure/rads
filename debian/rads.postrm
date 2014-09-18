@@ -20,6 +20,7 @@ true "
 ## /usr/lib/ram_adjusted_desktop_starter/display-manager-dpkg-post-invoke.
 update-rc.d kdm defaults >/dev/null 2>/dev/null || true
 update-rc.d gdm defaults >/dev/null 2>/dev/null || true
+update-rc.d gdm3 defaults >/dev/null 2>/dev/null || true
 update-rc.d lightdm defaults >/dev/null 2>/dev/null || true
 update-rc.d slim defaults >/dev/null 2>/dev/null || true
 update-rc.d wdm defaults >/dev/null 2>/dev/null || true
