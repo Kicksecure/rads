@@ -4,19 +4,19 @@
 
 ## Allow (re)start of the display manager (dm) without password.
 ## Please leave it enabled, unless you know what you are doing.
-ALL ALL=NOPASSWD: /etc/init.d/kdm
-ALL ALL=NOPASSWD: /usr/sbin/service kdm *
-ALL ALL=NOPASSWD: /etc/init.d/gdm
-ALL ALL=NOPASSWD: /usr/sbin/service gdm *
-ALL ALL=NOPASSWD: /etc/init.d/gdm3
-ALL ALL=NOPASSWD: /usr/sbin/service gdm3 *
-ALL ALL=NOPASSWD: /etc/init.d/lightdm
-ALL ALL=NOPASSWD: /usr/sbin/service lightdm *
-ALL ALL=NOPASSWD: /etc/init.d/slim
-ALL ALL=NOPASSWD: /usr/sbin/service slim *
-ALL ALL=NOPASSWD: /etc/init.d/wdm
-ALL ALL=NOPASSWD: /usr/sbin/service wdm *
-ALL ALL=NOPASSWD: /etc/init.d/xdm
-ALL ALL=NOPASSWD: /usr/sbin/service xdm *
-ALL ALL=NOPASSWD: /etc/init.d/nodm
-ALL ALL=NOPASSWD: /usr/sbin/service nodm *
+sudo ALL=NOPASSWD: /etc/init.d/kdm
+sudo ALL=NOPASSWD: /usr/sbin/service kdm *
+sudo ALL=NOPASSWD: /etc/init.d/gdm
+sudo ALL=NOPASSWD: /usr/sbin/service gdm *
+sudo ALL=NOPASSWD: /etc/init.d/gdm3
+sudo ALL=NOPASSWD: /usr/sbin/service gdm3 *
+sudo ALL=NOPASSWD: /etc/init.d/lightdm
+sudo ALL=NOPASSWD: /usr/sbin/service lightdm *
+sudo ALL=NOPASSWD: /etc/init.d/slim
+sudo ALL=NOPASSWD: /usr/sbin/service slim *
+sudo ALL=NOPASSWD: /etc/init.d/wdm
+sudo ALL=NOPASSWD: /usr/sbin/service wdm *
+sudo ALL=NOPASSWD: /etc/init.d/xdm
+sudo ALL=NOPASSWD: /usr/sbin/service xdm *
+sudo ALL=NOPASSWD: /etc/init.d/nodm
+sudo ALL=NOPASSWD: /usr/sbin/service nodm *
