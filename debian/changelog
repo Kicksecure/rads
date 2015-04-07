@@ -1,3 +1,9 @@
+rads (3:1.0-1) unstable; urgency=low
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@riseup.net>  Tue, 07 Apr 2015 17:42:41 +0000
+
 rads (3:0.9-1) unstable; urgency=low
 
   * New upstream version (local package).
