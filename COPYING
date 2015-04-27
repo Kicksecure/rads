@@ -20,7 +20,7 @@ License: GPL-3+
  License version 3 can be found in the file
  `/usr/share/common-licenses/GPL-3'.
 
-Files: /etc/inittab.anondist
+Files: etc/inittab.anondist
 Comment: Downloaded from:
          http://packages.debian.org/wheezy/sysvinit
          http://ftp-master.metadata.debian.org/changelogs//main/s/sysvinit/sysvinit_2.88dsf-43_copyright
@@ -45,7 +45,7 @@ License: GPLv2+
  On Debian GNU/Linux systems, the complete text of the GNU General
  Public License can be found in `/usr/share/common-licenses/GPL-2'.
 
-Files: /etc/kde4/kdm/kdmrc.anondist
+Files: etc/kde4/kdm/kdmrc.anondist
 Comment: Downloaded from:
          http://packages.debian.org/wheezy/kdm
          http://www.webcitation.org/6PnTLxk83
