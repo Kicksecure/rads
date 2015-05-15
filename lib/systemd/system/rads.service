@@ -4,21 +4,15 @@
 
 [Unit]
 Description=Ram Adjusted Desktop Starter
-After=livesys.service plymouth-quit-wait.service
-After=systemd-vconsole-setup.service
 Before=display-manager.service getty@tty1.service getty@ttyUSB0.service
 Before=serial-getty@ttyS0.service serial-getty@ttyO0.service serial-getty@ttyO2.service
 Before=serial-getty@ttyAMA0.service serial-getty@ttymxc0.service serial-getty@ttymxc3.service
-ConditionKernelCommandLine=!rd.live.image
+ConditionPathExists = !/usr/lib/qubes-whonix
 
 [Service]
 Type=oneshot
 ExecStart=/usr/lib/ram_adjusted_desktop_starter/ram_adjusted_desktop_starter
-TimeoutSec=0
 RemainAfterExit=yes
-SysVStartPriority=99
-StandardInput=tty
-#TTYPath=/dev/tty1
 StandardOutput=tty
 
 [Install]
