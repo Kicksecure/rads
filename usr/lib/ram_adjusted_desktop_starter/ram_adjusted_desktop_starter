@@ -228,17 +228,6 @@ configuration folder.)"
       fi
    fi
 
-   if [ "$rads_wait" = "0" ]; then
-      if [ "$rads_debug" = "1" ]; then
-         true "INFO: Waiting feature disabled."
-      fi
-   else
-      echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Starting login manager \
-(graphical desktop environment) $rads_display_manager in \
-$rads_wait_seconds seconds, unless you abort using ctrl + c. \
-This can be disabled or configured in /etc/rads.d/ configuration folder."
-   fi
-
    if [ -e "/usr/share/anon-gw-base-files/gateway" ]; then
       ## Whonix specific info message. Feel free to implement your own.
       if [ -d "/usr/share/whonix" ]; then
@@ -254,19 +243,28 @@ here: https://www.whonix.org/wiki/Desktop"
    fi
 
    ## Fallback.
-   sleep_1_exit_code="0"
+   systemd_ask_password_exit_code="0"
    if [ "$rads_wait" = "0" ]; then
       if [ "$rads_debug" = "1" ]; then
          true "INFO: Waiting feature disabled."
       fi
    else
-      ## Returns 0, if sleep was not terminated (CTRL + C not pressed) , otherwise 1.
-      ## This is implemented in a separate script, because `sh` does not support `trap`s.
-      sleep "$rads_wait_seconds" &
-      wait "$!" || { sleep_1_exit_code="$?" ; true; };
+      if command -v systemd-ask-password >/dev/null 2>&1 ; then
+         systemd_ask_password_text="[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Starting login manager \
+(graphical desktop environment) $rads_display_manager in \
+$rads_wait_seconds seconds, unless you abort using ctrl + c. \
+This can be disabled or configured in /etc/rads.d/ configuration folder."
+         ## systemd-ask-password exit codes:
+         ## 0: no timeout
+         ## 1: timeout
+         systemd_ask_password_output="$(systemd-ask-password --timeout "$rads_wait_seconds" "$systemd_ask_password_text")" || { systemd_ask_password_exit_code="$?" ; true; };
+      else
+         echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] running non-interactive, because systemd-ask-password is not available."
+         echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] can be disabled or configured in /etc/rads.d/ configuration folder."
+      fi
    fi
 
-   if [ "$sleep_1_exit_code" = "0" ]; then
+   if [ "$systemd_ask_password_exit_code" = "0" ] || [ "$systemd_ask_password_exit_code" = "1" ]; then
       service_2_exit_code="0"
       ## There is a /etc/sudoers.d/rads exception for this.
       sudo service "$rads_display_manager" status >/dev/null || { service_2_exit_code="$?" ; true; };
