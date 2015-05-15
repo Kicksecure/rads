@@ -1,3 +1,59 @@
+commit 9d1605db7e44f61cb8b590165bf9c26eb56606cf
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri May 15 20:06:12 2015 +0000
+
+    systemd unit: removed non-agnostic 'ConditionPathExists = !/usr/lib/qubes-whonix', this will be implemented in the qubes-whonix package - https://phabricator.whonix.org/T306
+
+commit 0e44a375f26ca0fd6f77b673f1ccba82e051d20b
+Merge: ab09983 4d6de00
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri May 15 14:36:29 2015 +0000
+
+    Merge branch 'systemd'
+
+commit 4d6de0073440f3d91e1f95f9069b555fa1c38a7f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri May 15 14:35:52 2015 +0000
+
+    ported to systemd; refactoring - https://phabricator.whonix.org/T57
+
+commit c8ea060477794e60740713f383973680098dd714
+Merge: 51ad2f1 ab09983
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri May 15 13:17:20 2015 +0000
+
+    Merge branch 'master' into systemd
+
+commit ab099838ff3ef077a9ec185d384fef3e83700476
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri May 15 13:15:24 2015 +0000
+
+    output; comments
+
+commit 40b5fcca7880e1c9bf2ecece85f8b500396cda18
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 30 17:56:47 2015 +0000
+
+    bumped changelog version
+
+commit 51ad2f1d1d95a33422fba0f1f75669f5c2dff149
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 28 23:50:43 2015 +0000
+
+    work on systemd support
+
+commit c94b0221362bfd1327c6ed7696761b6063d46e87
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 28 23:45:24 2015 +0000
+
+    work on systemd support
+
+commit f205d4e74b330d26e141df1891c8dfbf0584bd84
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 28 23:42:08 2015 +0000
+
+    work on systemd support
+
 commit 555209cf6237601fd2a670bc50f737f5ce18a2d7
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Apr 28 19:39:35 2015 +0000
