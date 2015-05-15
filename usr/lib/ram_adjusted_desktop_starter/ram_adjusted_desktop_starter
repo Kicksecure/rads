@@ -190,13 +190,13 @@ does not exist. Probably no desktop environment installed. Not starting a deskto
    fi
 
    service_1_exit_code="0"
-   ## There is a /etc/sudoers.d/kdm exception for this.
+   ## There is a /etc/sudoers.d/rads exception for this.
    sudo service "$rads_display_manager" status >/dev/null || { service_1_exit_code="$?" ; true; };
 
    if [ "$service_1_exit_code" = "0" ]; then
       if [ "$rads_debug" = "1" ]; then
          true "INFO: [RAM Adjusted Desktop Starter] \
-Not starting kdm, already running."
+Not starting $rads_display_manager, already running."
       fi
       exit 0
    fi
@@ -268,7 +268,7 @@ here: https://www.whonix.org/wiki/Desktop"
 
    if [ "$sleep_1_exit_code" = "0" ]; then
       service_2_exit_code="0"
-      ## There is a /etc/sudoers.d/kdm exception for this.
+      ## There is a /etc/sudoers.d/rads exception for this.
       sudo service "$rads_display_manager" status >/dev/null || { service_2_exit_code="$?" ; true; };
 
       if [ "$service_2_exit_code" = "0" ]; then
@@ -283,7 +283,7 @@ here: https://www.whonix.org/wiki/Desktop"
          wait "$!" || { sleep_3_exit_code="$?" ; true; };
 
          service_3_exit_code="0"
-         ## There is a /etc/sudoers.d/kdm exception for this.
+         ## There is a /etc/sudoers.d/rads exception for this.
          sudo service "$rads_display_manager" start || { service_3_exit_code="$?" ; true; };
 
          echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Starting login manager \
