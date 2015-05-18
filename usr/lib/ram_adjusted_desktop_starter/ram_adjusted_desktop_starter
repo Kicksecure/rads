@@ -166,6 +166,17 @@ ram-adjusted-desktop-starter() {
    export PATH
    ## }}
 
+   if command -v tty >/dev/null 2>&1 ; then
+      ## When started by systemd, there is no stdin connected and `tty` exit code is 1.
+      if tty --silent ; then
+         ## Likely run during an interactive apt-get upgrade.
+         if [ "$rads_debug" = "1" ]; then
+            true "INFO: [RAM Adjusted Desktop Starter] tty detected, not started by systemd, doing nothing."
+         fi
+         exit 0
+      fi
+   fi
+
    command_v_exit_code="0"
    command -v "$rads_display_manager" >/dev/null || { command_v_exit_code="$?" ; true; };
 
