@@ -1,3 +1,19 @@
+commit d3c27f735155033f53fb6ce8e75330255cc29bf9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon May 18 12:34:32 2015 +0000
+
+    Do not run rads outside of boot process.
+    When started by systemd, there is no stdin connected and `tty` exit code is 1.
+    In these cases, rads is likely run during an interactive apt-get upgrade.
+    Exit in those cases.
+    https://phabricator.whonix.org/T308
+
+commit 7fa4a1c95a0ab1e4274c5dedba770b66b2813440
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri May 15 20:12:15 2015 +0000
+
+    bumped changelog version
+
 commit 9d1605db7e44f61cb8b590165bf9c26eb56606cf
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri May 15 20:06:12 2015 +0000
