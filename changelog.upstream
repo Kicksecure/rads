@@ -1,3 +1,15 @@
+commit cb90ac1c54900fc27e9b80ccc2c46ea95f98a324
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat May 23 00:18:15 2015 +0000
+
+    do not run rads outside of boot process - https://phabricator.whonix.org/T308
+
+commit 8b086bb1f3aa10d92e9fb43a49edd88ebd6649c2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon May 18 13:17:50 2015 +0000
+
+    bumped changelog version
+
 commit d3c27f735155033f53fb6ce8e75330255cc29bf9
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon May 18 12:34:32 2015 +0000
