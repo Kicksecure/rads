@@ -14,6 +14,7 @@
 
 #set -x
 set -o pipefail
+set -o errtrace
 
 error_handler_rads() {
    echo "[${red}${bold}ERROR${reset}] [RAM Adjusted Desktop Starter] \
@@ -31,8 +32,6 @@ trap "sigterm_rads" SIGTERM
 trap "sigterm_rads" SIGINT
 
 colors() {
-   trap "error_handler_rads" ERR
-
 ## Thanks to:
 ## http://mywiki.wooledge.org/BashFAQ/037
 ## Variables for terminal requests.
@@ -77,24 +76,18 @@ colors() {
 }
 
 create_status_file_no_start_x() {
-   trap "error_handler_rads" ERR
-
    mkdir --parents "/tmp/rads"
    touch "/tmp/rads/no_start_x.status"
    rm --force "/tmp/rads/start_x.status"
 }
 
 create_status_file_start_x() {
-   trap "error_handler_rads" ERR
-
    mkdir --parents "/tmp/rads"
    rm --force "/tmp/rads/no_start_x.status"
    touch "/tmp/rads/start_x.status"
 }
 
 ram-adjusted-desktop-starter() {
-   trap "error_handler_rads" ERR
-
    for i in "/etc/rads.d/"*; do
       if [ -f "$i" ]; then
          ## If the last character is a ~, ignore that file,
