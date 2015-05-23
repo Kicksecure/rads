@@ -1,3 +1,21 @@
+commit c8c94c3dfe625dee62bd0fcbe76c5480d4e94056
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat May 23 15:50:12 2015 +0000
+
+    Improved implementation. When there is enough RAM... On 'enter': instantly start login manager. On 'ctrl + c': instantly abort and do not start login manager. On 'timeout': start login manager. Thanks to 'dh_systemd_start --no-start' we can now use 'StandardInput=tty' and 'read' instead of 'systemd-ask-password'. Now we could even implement an interactive menu at boot (that allows to configure wait time and/or disabling rads). - https://phabricator.whonix.org/T57
+
+commit 620454931bba60caa1aab1a0b0c0707ef0a1d8b7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat May 23 15:18:57 2015 +0000
+
+    refactoring
+
+commit ca69a0300f1f368d6a257549e2fd867584a4aeb0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat May 23 00:19:23 2015 +0000
+
+    bumped changelog version
+
 commit cb90ac1c54900fc27e9b80ccc2c46ea95f98a324
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat May 23 00:18:15 2015 +0000
