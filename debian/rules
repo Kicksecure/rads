@@ -9,5 +9,8 @@
 %:
 	dh $@ --with=systemd
 
+override_dh_systemd_start:
+	dh_systemd_start --no-start
+
 override_dh_installchangelogs:
 	dh_installchangelogs changelog.upstream upstream
