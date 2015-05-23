@@ -23,14 +23,6 @@ ret: $? | BASH_COMMAND: $BASH_COMMAND | Please report this bug!"
 
 trap "error_handler_rads" ERR
 
-sigterm_rads() {
-   #echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] SIGTERM received!"
-   true "INFO: [RAM Adjusted Desktop Starter] SIGTERM received!"
-}
-
-trap "sigterm_rads" SIGTERM
-trap "sigterm_rads" SIGINT
-
 colors() {
 ## Thanks to:
 ## http://mywiki.wooledge.org/BashFAQ/037
@@ -159,17 +151,6 @@ ram-adjusted-desktop-starter() {
    export PATH
    ## }}
 
-   if command -v tty >/dev/null 2>&1 ; then
-      ## When started by systemd, there is no stdin connected and `tty` exit code is 1.
-      if tty --silent ; then
-         ## Likely run during an interactive apt-get upgrade.
-         if [ "$rads_debug" = "1" ]; then
-            true "INFO: [RAM Adjusted Desktop Starter] tty detected, not started by systemd, doing nothing."
-         fi
-         exit 0
-      fi
-   fi
-
    command_v_exit_code="0"
    command -v "$rads_display_manager" >/dev/null || { command_v_exit_code="$?" ; true; };
 
@@ -247,28 +228,24 @@ here: https://www.whonix.org/wiki/Desktop"
    fi
 
    ## Fallback.
-   systemd_ask_password_exit_code="0"
+   read_exit_code="0"
    if [ "$rads_wait" = "0" ]; then
       if [ "$rads_debug" = "1" ]; then
          true "INFO: Waiting feature disabled."
       fi
    else
-      if command -v systemd-ask-password >/dev/null 2>&1 ; then
-         systemd_ask_password_text="[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Starting login manager \
+      echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Starting login manager \
 (graphical desktop environment) $rads_display_manager in \
 $rads_wait_seconds seconds, unless you abort using ctrl + c. \
 This can be disabled or configured in /etc/rads.d/ configuration folder."
-         ## systemd-ask-password exit codes:
-         ## 0: no timeout
-         ## 1: timeout
-         systemd_ask_password_output="$(systemd-ask-password --timeout "$rads_wait_seconds" "$systemd_ask_password_text")" || { systemd_ask_password_exit_code="$?" ; true; };
-      else
-         echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] running non-interactive, because systemd-ask-password is not available."
-         echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] can be disabled or configured in /etc/rads.d/ configuration folder."
-      fi
+      read -t "$rads_wait_seconds" read_input || { read_exit_code="$?" ; true; };
+      ## read exits,
+      ## 0: when enter has been pressed with or without input
+      ## 142: on timeout
+      ## 130: on ctrl + c
    fi
 
-   if [ "$systemd_ask_password_exit_code" = "0" ] || [ "$systemd_ask_password_exit_code" = "1" ]; then
+   if [ "$read_exit_code" = "0" ] || [ "$read_exit_code" = "142" ]; then
       service_2_exit_code="0"
       ## There is a /etc/sudoers.d/rads exception for this.
       sudo service "$rads_display_manager" status >/dev/null || { service_2_exit_code="$?" ; true; };
@@ -278,11 +255,6 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
       else
          echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Trying to start login manager \
 (graphical desktop environment) $rads_display_manager..."
-
-         ## Sleep for the look and feel. Users should be able to see "Trying to start login manager..."
-         sleep_3_exit_code="0"
-         sleep 5 &
-         wait "$!" || { sleep_3_exit_code="$?" ; true; };
 
          service_3_exit_code="0"
          ## There is a /etc/sudoers.d/rads exception for this.
