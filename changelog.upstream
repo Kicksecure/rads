@@ -1,3 +1,15 @@
+commit e6c4c84b48044895a066cf743ae9625e8aa141bf
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jun 9 20:50:12 2015 +0000
+
+    backwards compatiblity fix with Whonix <= 10.x
+
+commit 0af43cd5f33f39d1f6ee7a5ad2f77965884401fa
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jun 9 20:25:11 2015 +0000
+
+    bumped changelog version
+
 commit cf0267514e6f2e472466ce30aaa4b6f3d807fb65
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jun 9 20:24:31 2015 +0000
