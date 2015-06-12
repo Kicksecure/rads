@@ -1,3 +1,15 @@
+commit 270db5b186417dc38d938f014bd8006aeaf6cdc0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 12 17:09:30 2015 +0000
+
+    silence by default when disabled
+
+commit f40726cb11f47efa8ad03dedd4a01d4fb10ddefd
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jun 9 20:53:40 2015 +0000
+
+    bumped changelog version
+
 commit e6c4c84b48044895a066cf743ae9625e8aa141bf
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jun 9 20:50:12 2015 +0000
