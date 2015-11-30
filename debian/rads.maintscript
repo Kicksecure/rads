@@ -1,0 +1,1 @@
+rm_conffile /etc/rads.d/30_desktop_default
