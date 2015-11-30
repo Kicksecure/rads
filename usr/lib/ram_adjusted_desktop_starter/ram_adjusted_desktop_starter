@@ -80,6 +80,7 @@ create_status_file_start_x() {
 }
 
 ram-adjusted-desktop-starter() {
+   local i
    for i in /etc/rads.d/*.conf; do
       bash -n "$i"
       source "$i"
