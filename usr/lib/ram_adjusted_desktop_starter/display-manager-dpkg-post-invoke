@@ -18,7 +18,7 @@
 ## because this would break "sudo service $dm restart" for the user.
 ##
 ## - hook to call this file: /etc/apt/apt.conf.d/90rads
-## - configuration file: /etc/rads.d/30_desktop_default
+## - configuration file: /etc/rads.d/30_default.conf
 
 if [ "$(id -u)" != "0" ]; then
     echo "$BASH_SOURCE ERROR: This must be run as root (sudo)!"
