@@ -196,7 +196,7 @@ configuration folder.)"
 
    if [ -e "/usr/share/anon-gw-base-files/gateway" ]; then
       ## Whonix specific info message. Feel free to implement your own.
-      if [ -d "/usr/share/whonix" ]; then
+      if [ -f "/usr/share/whonix/marker" ]; then
          echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] If your \
 host has little RAM, you are advised to reduce Gateway \
 RAM to 196 MB. No graphical desktop environment will be started in that case. \
