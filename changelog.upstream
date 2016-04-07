@@ -1,3 +1,72 @@
+commit 8da54cc73d16130078177fe11bc835a4c744fd8b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 29 22:47:21 2016 +0000
+
+    use more appropriate marker file /usr/share/whonix/marker
+
+commit d86db1965809133bde1d5f084bbcf1b5c076c31e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Mar 14 20:25:52 2016 +0100
+
+    128 MB -> 196 MB
+
+commit 67b8fb09b547bfc76f0fabed5e7242a3dbe8811b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 19 20:23:43 2015 +0100
+
+    removed obsolete comment
+
+commit 76f26d2650f70ad6e5ce01bb436f0e0621241e03
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 19 20:16:02 2015 +0100
+
+    use /var/run/rads rather than /tmp/rads
+    
+    Now that rads is started by a systemd unit file, it is saner to write to
+    /var/run rather than /tmp.
+    
+    https://forums.whonix.org/t/bug-report-ram-adjusted-desktop-start
+
+commit eb0679df7df68a1e432852420272c572ee5c0c5c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 12 21:22:58 2015 +0000
+
+    use systemd tmpfiles.d mechanism to create temporary folder
+
+commit 905b83710714ad2c8c6e8f6ecbdf5ffdf42435eb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 1 21:37:52 2015 +0000
+
+    fixed config file parser if config folder does not exist
+
+commit 6b471bfe71b735e3552c5f8428f91a6e28a1a7b4
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 30 21:25:02 2015 +0000
+
+    comment
+
+commit a9b4eaef3279b5738fe836df8d73ed1f08cd66bd
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 30 20:00:44 2015 +0000
+
+    local
+
+commit 9e462bbe39fe5dfbcf9ed841c482803a21c9fd24
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 30 19:40:48 2015 +0000
+
+    Only source configuration files that end with the '.conf' extension.
+    
+    Thanks to @nrgaway for the suggestion!
+    
+    https://phabricator.whonix.org/T286
+
+commit 282ed1473406a637f10eb526f20a70379389a584
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 25 14:08:18 2015 +0000
+
+    bumped changelog version
+
 commit 78fd73705c19c0d3722feca94b2cfad689bc81d6
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Jun 12 17:10:42 2015 +0000
