@@ -27,6 +27,7 @@ else
     true "$BASH_SOURCE INFO: Script running as root."
 fi
 
+shopt -s nullglob
 for i in /etc/rads.d/*.conf; do
    bash_n_exit_code="0"
    bash -n "$i" || { bash_n_exit_code="$?" ; true; };
