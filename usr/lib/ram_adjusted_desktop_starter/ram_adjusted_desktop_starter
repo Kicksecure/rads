@@ -16,6 +16,10 @@ ret: $? | BASH_COMMAND: $BASH_COMMAND | Please report this bug!"
 trap "error_handler_rads" ERR
 
 colors() {
+   if [ "$TERM" = "" ]; then
+      return 0
+   fi
+
 ## Thanks to:
 ## http://mywiki.wooledge.org/BashFAQ/037
 ## Variables for terminal requests.
