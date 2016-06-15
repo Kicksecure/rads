@@ -28,7 +28,7 @@ else
 fi
 
 shopt -s nullglob
-for i in /etc/rads.d/*.conf; do
+for i in /etc/rads.d/*.conf /rw/config/rads.d/*.conf; do
    bash_n_exit_code="0"
    bash -n "$i" || { bash_n_exit_code="$?" ; true; };
    if [ ! "$bash_n_exit_code" = "0" ]; then

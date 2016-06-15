@@ -78,7 +78,7 @@ create_status_file_start_x() {
 ram-adjusted-desktop-starter() {
    shopt -s nullglob
    local i
-   for i in /etc/rads.d/*.conf; do
+   for i in /etc/rads.d/*.conf /rw/config/rads.d/*.conf; do
       bash -n "$i"
       source "$i"
    done
