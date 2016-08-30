@@ -161,7 +161,7 @@ does not exist. Probably no desktop environment installed. Not starting a deskto
 
    service_1_exit_code="0"
    ## There is a /etc/sudoers.d/rads exception for this.
-   sudo service "$rads_display_manager" status >/dev/null || { service_1_exit_code="$?" ; true; };
+   sudo --non-interactive service "$rads_display_manager" status >/dev/null || { service_1_exit_code="$?" ; true; };
 
    if [ "$service_1_exit_code" = "0" ]; then
       if [ "$rads_debug" = "1" ]; then
@@ -233,7 +233,7 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
    if [ "$read_exit_code" = "0" ] || [ "$read_exit_code" = "142" ]; then
       service_2_exit_code="0"
       ## There is a /etc/sudoers.d/rads exception for this.
-      sudo service "$rads_display_manager" status >/dev/null || { service_2_exit_code="$?" ; true; };
+      sudo --non-interactive service "$rads_display_manager" status >/dev/null || { service_2_exit_code="$?" ; true; };
 
       if [ "$service_2_exit_code" = "0" ]; then
          echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] $rads_display_manager already running, not starting."
@@ -243,7 +243,7 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
 
          service_3_exit_code="0"
          ## There is a /etc/sudoers.d/rads exception for this.
-         sudo service "$rads_display_manager" start || { service_3_exit_code="$?" ; true; };
+         sudo --non-interactive service "$rads_display_manager" start || { service_3_exit_code="$?" ; true; };
 
          echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Starting login manager \
 (graphical desktop environment) $rads_display_manager..."
