@@ -38,6 +38,8 @@ for i in /etc/rads.d/*.conf /rw/config/rads.d/*.conf; do
    source "$i"
 done
 
+[ -n "$rads_autostart_decision_feature" ] || rads_autostart_decision_feature="1"
+
 if [ ! "$rads_autostart_decision_feature" = "1" ]; then
    true "$BASH_SOURCE INFO: rads_autostart_decision_feature is not set to 1, doing nothing."
    exit 0
