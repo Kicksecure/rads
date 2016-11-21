@@ -3,7 +3,7 @@
 If there is more than X MB RAM in total, the desktop environment will be
 started.
 
-If less than X MB RAM in total (for example, only 192 MB RAM in total), no
+If less than X MB RAM in total (for example, only 196 MB RAM in total), no
 desktop environment will be started.
 
 This should be quite convenient, because users with low RAM could reduce Y MB
@@ -62,7 +62,7 @@ gpg --export 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA | sudo apt-key add -
 3\. Add Whonix's APT repository.
 
 ```
-echo "deb http://sourceforge.net/projects/whonixdevelopermetafiles/files/internal/ wheezy main" > /etc/apt/sources.list.d/whonix.list
+echo "deb http://deb.whonix.org jessie main" > /etc/apt/sources.list.d/whonix.list
 ```
 
 4\. Update your package lists.
