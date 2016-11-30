@@ -14,7 +14,7 @@ Standards-Version: 3.9.6
 
 Package: rads
 Architecture: all
-Depends: sudo, ${misc:Depends}
+Depends: ${misc:Depends}
 Description: RAM Adjusted Desktop Starter
  If there is more than X MB RAM in total, the desktop environment will be
  started.
