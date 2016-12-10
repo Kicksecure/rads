@@ -1,3 +1,51 @@
+commit b55e30edd764b037590f9f4a82b46ae425c27dd5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Nov 30 11:17:00 2016 +0100
+
+    remove sudo / sudoers because starting as root since ported to systemd
+
+commit cf7aaa30a21ecaf44b8886ba66132aa7d291f306
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 21 17:42:37 2016 +0000
+
+    readme
+
+commit 168642875e30d202613d4e0274972ce5d18e102d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Oct 12 23:46:39 2016 +0000
+
+    add sane built-in defaults even if config files are non-existing
+    
+    https://phabricator.whonix.org/T503
+
+commit 1700ad5103f60ada3b167956769fe11ebfa0e5cf
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 30 21:12:30 2016 +0000
+
+    sudo --non-interactive
+    
+    https://phabricator.whonix.org/T549
+
+commit 6fae949b418e10af496541d4a5af5b86c0cc6c61
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jun 15 21:45:12 2016 +0000
+
+    also source /rw/config/rads.d/*.conf for config snippets
+
+commit 1760d8e8cee86dbc47626493807a1564d339ce60
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Jun 2 11:54:05 2016 +0000
+
+    do not use tput if variable TERM is empty
+    
+    https://phabricator.whonix.org/T505
+
+commit 2cdb87a2589cb3a67229694f88143f3a84ac3c73
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 28 00:27:32 2016 +0000
+
+    bumped changelog version
+
 commit 89e5f57da525d8e95035a113562853a81fc2e2b5
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Apr 27 23:37:54 2016 +0000
