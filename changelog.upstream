@@ -1,3 +1,15 @@
+commit 85ab887c53697bc040d6f43b6ee393115ad0ac56
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Dec 14 20:44:36 2016 +0000
+
+    display-manager.service -> graphical.target
+
+commit f5d0772a0cc35f312b3894fc145caf52e6d619b7
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Dec 10 02:29:02 2016 +0000
+
+    bumped changelog version
+
 commit b55e30edd764b037590f9f4a82b46ae425c27dd5
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Nov 30 11:17:00 2016 +0100
