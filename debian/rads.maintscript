@@ -1,1 +1,2 @@
 rm_conffile /etc/rads.d/30_desktop_default
+rm_conffile /etc/apt/apt.conf.d/90rads

@@ -1,0 +1,19 @@
+## This file is part of Whonix.
+## See the file COPYING for copying conditions.
+## Modified for Whonix.
+
+[Unit]
+Description=Ram Adjusted Desktop Starter Early Boot Display Manger Startup Preventer
+Before=rads.service
+Before=getty.target
+Before=graphical.target
+Before=display-manager.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/mkdir -p /var/run/rads
+ExecStart=/bin/touch /var/run/rads/rads-block-display-manger-startup.status
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

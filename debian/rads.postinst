@@ -16,26 +16,6 @@ true "
 #####################################################################
 "
 
-case "$1" in
-   configure)
-      true "INFO: Configuring $DPKG_MAINTSCRIPT_PACKAGE..."
-
-      ## Default display manager (dm) sysvinit autostart gets disabled, because
-      ## in /etc/profile.d/ we start RAM Adjusted Desktop Loader which decides
-      ## whether to autostart dm based on total amount of RAM, default and user
-      ## settings or not.
-      if [ -x /usr/lib/ram_adjusted_desktop_starter/display-manager-dpkg-post-invoke ]; then
-         /usr/lib/ram_adjusted_desktop_starter/display-manager-dpkg-post-invoke
-      fi
-
-      true "INFO: End configuring $DPKG_MAINTSCRIPT_PACKAGE."
-
-      ;;
-
-   *)
-      ;;
-esac
-
 ## workaround for 'dh_installinit should run systemd-tmpfiles if a
 ## /usr/lib/tmpfiles.d/ snippet gets shipped for systemd-only packages
 ## also' - http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=795519

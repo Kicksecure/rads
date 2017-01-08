@@ -15,6 +15,12 @@ ret: $? | BASH_COMMAND: $BASH_COMMAND | Please report this bug!"
 
 trap "error_handler_rads" ERR
 
+error_handler_exit() {
+   rm --force "/var/run/rads/rads-startup.status"
+}
+
+trap "error_handler_exit" EXIT
+
 colors() {
    if [ "$TERM" = "" ]; then
       return 0
