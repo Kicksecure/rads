@@ -4,6 +4,7 @@
 
 [Unit]
 Description=Ram Adjusted Desktop Starter Early Boot Display Manger Startup Preventer
+Documentation=https://www.whonix.org/wiki/RAM_Adjusted_Desktop_Starter
 Before=rads.service
 Before=getty.target
 Before=graphical.target

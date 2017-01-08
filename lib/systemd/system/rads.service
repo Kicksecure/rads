@@ -4,6 +4,7 @@
 
 [Unit]
 Description=Ram Adjusted Desktop Starter
+Documentation=https://www.whonix.org/wiki/RAM_Adjusted_Desktop_Starter
 Before=getty.target
 After=rads-block-display-manger.service
 
