@@ -16,7 +16,7 @@ ret: $? | BASH_COMMAND: $BASH_COMMAND | Please report this bug!"
 trap "error_handler_rads" ERR
 
 error_handler_exit() {
-   rm --force "/var/run/rads/rads-startup.status"
+   rm --force "/var/run/rads/rads-block-display-manger-startup.status"
 }
 
 trap "error_handler_exit" EXIT
