@@ -21,6 +21,12 @@ exit_handler_rads() {
 
 trap "exit_handler_rads" EXIT
 
+sigint_handler_rads() {
+   exit 0
+}
+
+trap "sigint_handler_rads" EXIT
+
 colors() {
    if [ "$TERM" = "" ]; then
       return 0

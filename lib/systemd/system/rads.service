@@ -5,7 +5,8 @@
 [Unit]
 Description=Ram Adjusted Desktop Starter
 Documentation=https://www.whonix.org/wiki/RAM_Adjusted_Desktop_Starter
-Before=getty.target
+ConditionPathExists=/dev/tty0
+Before=getty@tty1.service
 After=rads-block-display-manger.service
 
 [Service]
@@ -14,7 +15,7 @@ ExecStart=/usr/lib/ram_adjusted_desktop_starter/ram_adjusted_desktop_starter
 ExecStartPost=/bin/rm --force /var/run/rads/rads-block-display-manger-startup.status
 RemainAfterExit=yes
 StandardOutput=journal+console
-StandardInput=tty
+StandardInput=tty-force
 
 [Install]
 WantedBy=multi-user.target
