@@ -113,7 +113,7 @@ ram-adjusted-desktop-starter() {
       if [ -f "$x_default_dm_config_file" ]; then
          rads_display_manager="$(basename "$(cat "$x_default_dm_config_file")")"
          if [ "$rads_display_manager" = "" ]; then
-            rads_display_manager="kdm"
+            rads_display_manager="sddm"
          fi
       else
          rads_no_x_default_dm="1"
