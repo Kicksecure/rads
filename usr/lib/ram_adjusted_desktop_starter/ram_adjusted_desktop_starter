@@ -15,11 +15,11 @@ ret: $? | BASH_COMMAND: $BASH_COMMAND | Please report this bug!"
 
 trap "error_handler_rads" ERR
 
-error_handler_exit() {
+exit_handler_rads() {
    delete_display_manager_startup_block
 }
 
-trap "error_handler_exit" EXIT
+trap "exit_handler_rads" EXIT
 
 colors() {
    if [ "$TERM" = "" ]; then
