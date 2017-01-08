@@ -16,7 +16,7 @@ ret: $? | BASH_COMMAND: $BASH_COMMAND | Please report this bug!"
 trap "error_handler_rads" ERR
 
 error_handler_exit() {
-   rm --force "/var/run/rads/rads-block-display-manger-startup.status"
+   delete_display_manager_startup_block
 }
 
 trap "error_handler_exit" EXIT
@@ -67,6 +67,10 @@ colors() {
                 tput ac; tput ae;         } )   # Drawing characters
     back=$'\b'
 } 2>/dev/null ||:
+}
+
+delete_display_manager_startup_block() {
+   rm --force "/var/run/rads/rads-block-display-manger-startup.status"
 }
 
 create_status_file_no_start_x() {
@@ -244,6 +248,8 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
       else
          echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Trying to start login manager \
 (graphical desktop environment) $rads_display_manager..."
+
+         delete_display_manager_startup_block
 
          service_3_exit_code="0"
          service "$rads_display_manager" start || { service_3_exit_code="$?" ; true; };
