@@ -26,6 +26,7 @@ update-rc.d slim defaults >/dev/null 2>/dev/null || true
 update-rc.d wdm defaults >/dev/null 2>/dev/null || true
 update-rc.d xdm defaults >/dev/null 2>/dev/null || true
 update-rc.d nodm defaults >/dev/null 2>/dev/null || true
+update-rc.d sddm defaults >/dev/null 2>/dev/null || true
 
 true "INFO: debhelper beginning here."
 
