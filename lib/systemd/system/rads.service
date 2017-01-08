@@ -13,7 +13,7 @@ Type=oneshot
 ExecStart=/usr/lib/ram_adjusted_desktop_starter/ram_adjusted_desktop_starter
 ExecStartPost=/bin/rm --force /var/run/rads/rads-block-display-manger-startup.status
 RemainAfterExit=yes
-StandardOutput=tty
+StandardOutput=journal+console
 StandardInput=tty
 
 [Install]
