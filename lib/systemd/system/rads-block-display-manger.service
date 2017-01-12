@@ -3,7 +3,7 @@
 ## Modified for Whonix.
 
 [Unit]
-Description=Ram Adjusted Desktop Starter Early Boot Display Manger Startup Preventer
+Description=Ram Adjusted Desktop Starter Early Boot
 Documentation=https://www.whonix.org/wiki/RAM_Adjusted_Desktop_Starter
 ConditionPathExists=/dev/tty0
 Before=rads.service
