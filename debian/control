@@ -10,7 +10,7 @@ Build-Depends: debhelper (>= 9), faketime, genmkfile, dh-systemd, config-package
 Homepage: https://github.com/Whonix/rads
 Vcs-Browser: https://github.com/Whonix/rads
 Vcs-Git: https://github.com/Whonix/rads.git
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 
 Package: rads
 Architecture: all
