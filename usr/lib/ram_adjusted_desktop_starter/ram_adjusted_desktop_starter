@@ -9,7 +9,7 @@ set -o pipefail
 set -o errtrace
 
 error_handler_rads() {
-   echo "[${red}${bold}ERROR${reset}] [RAM Adjusted Desktop Starter] \
+   echo "[${red}${bold}ERROR${reset}] \
 ret: $? | BASH_COMMAND: $BASH_COMMAND | Please report this bug!"
 }
 
@@ -140,7 +140,7 @@ ram-adjusted-desktop-starter() {
 
    if [ ! "$rads_autostart_decision_feature" = "1" ]; then
       if [ "$rads_debug" = "1" ]; then
-         true "INFO: [RAM Adjusted Desktop Starter] rads_autostart_decision_feature is not set to 1, doing nothing."
+         true "INFO: rads_autostart_decision_feature is not set to 1, doing nothing."
       fi
       exit 0
    fi
@@ -157,7 +157,7 @@ ram-adjusted-desktop-starter() {
 
    if [ ! "$command_v_exit_code" = "0" ]; then
       if [ "$rads_debug" = "1" ]; then
-         true "INFO: [RAM Adjusted Desktop Starter] display manager \
+         true "INFO: display manager \
 $rads_display_manager configured in /etc/rads.d/ \
 configuration folder does not exist. Not starting a desktop environment."
       fi
@@ -167,7 +167,7 @@ configuration folder does not exist. Not starting a desktop environment."
 
    if [ "$rads_no_x_default_dm" = "1" ]; then
       if [ "$rads_debug" = "1" ]; then
-         true "INFO: [RAM Adjusted Desktop Starter] config file \
+         true "INFO: config file \
 $x_default_dm_config_file \
 does not exist. Probably no desktop environment installed. Not starting a desktop environment."
       fi
@@ -180,7 +180,7 @@ does not exist. Probably no desktop environment installed. Not starting a deskto
 
    if [ "$service_1_exit_code" = "0" ]; then
       if [ "$rads_debug" = "1" ]; then
-         true "INFO: [RAM Adjusted Desktop Starter] \
+         true "INFO: \
 Not starting $rads_display_manager, already running."
       fi
       exit 0
@@ -193,7 +193,7 @@ Not starting $rads_display_manager, already running."
 
    if [ "$rads_start_display_manager" = "0" ]; then
       if [ "$rads_debug" = "1" ]; then
-         true "INFO: [RAM Adjusted Desktop Starter] \
+         true "INFO: \
 rads_start_display_manager is set to 0 in /etc/rads.d/ \
 configuration folder, not starting a desktop environment."
       fi
@@ -203,7 +203,7 @@ configuration folder, not starting a desktop environment."
 
    if [ ! "$rads_skip_ram_test" = "1" ]; then
       if [ "$total_ram" -lt "$rads_minium_ram" ]; then
-         echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Not starting login manager \
+         echo "[${green}INFO${reset}] Not starting login manager \
 (graphical desktop environment) ($rads_display_manager), \
 because there is only $total_ram MB total RAM. (A minimum of \
 $rads_minium_ram MB total RAM is configured in /etc/rads.d/ \
@@ -216,7 +216,7 @@ configuration folder.)"
    if [ -e "/usr/share/anon-gw-base-files/gateway" ]; then
       ## Whonix specific info message. Feel free to implement your own.
       if [ -f "/usr/share/whonix/marker" ]; then
-         echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] If your \
+         echo "[${green}INFO${reset}] If your \
 host has little RAM, you are advised to reduce Gateway \
 RAM to 196 MB. No graphical desktop environment will be started in that case. \
 A Gateway without graphical desktop environment works as good as one with, \
@@ -234,7 +234,7 @@ here: https://www.whonix.org/wiki/Desktop"
          true "INFO: Waiting feature disabled."
       fi
    else
-      echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Starting login manager \
+      echo "[${green}INFO${reset}] Starting login manager \
 (graphical desktop environment) $rads_display_manager in \
 $rads_wait_seconds seconds, unless you abort using ctrl + c. \
 This can be disabled or configured in /etc/rads.d/ configuration folder."
@@ -250,9 +250,9 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
       service "$rads_display_manager" status >/dev/null || { service_2_exit_code="$?" ; true; };
 
       if [ "$service_2_exit_code" = "0" ]; then
-         echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] $rads_display_manager already running, not starting."
+         echo "[${green}INFO${reset}] $rads_display_manager already running, not starting."
       else
-         echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Trying to start login manager \
+         echo "[${green}INFO${reset}] Trying to start login manager \
 (graphical desktop environment) $rads_display_manager..."
 
          delete_display_manager_startup_block
@@ -260,14 +260,14 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
          service_3_exit_code="0"
          service "$rads_display_manager" start || { service_3_exit_code="$?" ; true; };
 
-         echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Starting login manager \
+         echo "[${green}INFO${reset}] Starting login manager \
 (graphical desktop environment) $rads_display_manager..."
 
          if [ "$service_3_exit_code" = "0" ]; then
-            true "INFO: [RAM Adjusted Desktop Starter] Successfully started $rads_display_manager."
+            true "INFO: Successfully started $rads_display_manager."
             create_status_file_start_x
          else
-            echo "[${red}${bold}ERROR${reset}] [RAM Adjusted Desktop Starter] \
+            echo "[${red}${bold}ERROR${reset}] \
 Could not start $rads_display_manager. Please report this bug!"
          fi
       fi
@@ -275,9 +275,9 @@ Could not start $rads_display_manager. Please report this bug!"
       ## We will not boot into a graphical desktop environment.
       ## Make a new line so the ^C stands alone.
       echo ""
-      echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Manually aborted start of login manager \
+      echo "[${green}INFO${reset}] Manually aborted start of login manager \
 (graphical desktop environment) $rads_display_manager."
-      echo "[${green}INFO${reset}] [RAM Adjusted Desktop Starter] Feel free to manually start a login manager \
+      echo "[${green}INFO${reset}] Feel free to manually start a login manager \
 (graphical desktop environment) later.
     sudo service $rads_display_manager start"
 
