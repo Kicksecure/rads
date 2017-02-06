@@ -1,3 +1,23 @@
+commit d7c9b93d71c15d6379ecea752bf343490cbcb053
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Feb 5 19:27:48 2017 +0100
+
+    remove duplicate [RAM Adjusted Desktop Starter] from output
+    
+    since systemd already adds this
+
+commit 079badd4adaaa050716d6a108c1aa5d60da260f9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Feb 5 19:25:21 2017 +0100
+
+    fix
+
+commit 493c88ba8559bc3e69bd6b753025da2e1ef5f641
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 15 15:34:54 2017 +0000
+
+    bumped changelog version
+
 commit 9ee1bc7f37691f97de2c6d914eb06bd8ce009c32
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jan 15 08:35:39 2017 +0100
