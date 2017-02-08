@@ -134,16 +134,6 @@ ram-adjusted-desktop-starter() {
    if [ -z "$rads_wait_seconds" ]; then
       rads_wait_seconds="10"
    fi
-   if [ -z "$rads_autostart_decision_feature" ]; then
-      rads_autostart_decision_feature="1"
-   fi
-
-   if [ ! "$rads_autostart_decision_feature" = "1" ]; then
-      if [ "$rads_debug" = "1" ]; then
-         true "INFO: rads_autostart_decision_feature is not set to 1, doing nothing."
-      fi
-      exit 0
-   fi
 
    ## {{ Expand PATH variable. Otherwise for example "/usr/sbin/lightdm" could
    ## not be detected below using "command -v".
