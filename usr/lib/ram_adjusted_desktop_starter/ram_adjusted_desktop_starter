@@ -166,7 +166,7 @@ does not exist. Probably no desktop environment installed. Not starting a deskto
    fi
 
    service_1_exit_code="0"
-   service "$rads_display_manager" status >/dev/null || { service_1_exit_code="$?" ; true; };
+   systemctl --no-pager status "$rads_display_manager" >/dev/null || { service_1_exit_code="$?" ; true; };
 
    if [ "$service_1_exit_code" = "0" ]; then
       if [ "$rads_debug" = "1" ]; then
@@ -237,7 +237,7 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
 
    if [ "$read_exit_code" = "0" ] || [ "$read_exit_code" = "142" ]; then
       service_2_exit_code="0"
-      service "$rads_display_manager" status >/dev/null || { service_2_exit_code="$?" ; true; };
+      systemctl --no-pager status "$rads_display_manager" >/dev/null || { service_2_exit_code="$?" ; true; };
 
       if [ "$service_2_exit_code" = "0" ]; then
          echo "[${green}INFO${reset}] $rads_display_manager already running, not starting."
@@ -248,7 +248,7 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
          delete_display_manager_startup_block
 
          service_3_exit_code="0"
-         service "$rads_display_manager" start || { service_3_exit_code="$?" ; true; };
+         systemctl --no-pager start "$rads_display_manager" || { service_3_exit_code="$?" ; true; };
 
          echo "[${green}INFO${reset}] Starting login manager \
 (graphical desktop environment) $rads_display_manager..."
