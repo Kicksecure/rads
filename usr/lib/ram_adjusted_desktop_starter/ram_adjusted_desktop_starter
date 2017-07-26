@@ -208,12 +208,12 @@ configuration folder.)"
       if [ -f "/usr/share/whonix/marker" ]; then
          echo "[${green}INFO${reset}] If your \
 host has little RAM, you are advised to reduce Gateway \
-RAM to 196 MB. No graphical desktop environment will be started in that case. \
+RAM to 256 MB. No graphical desktop environment will be started in that case. \
 A Gateway without graphical desktop environment works as good as one with, \
 it's just not that convenient. If you want, you can sometimes start a graphical \
-desktop environment and sometimes only a terminal by toggling how much RAM is \
-available to Gateway. Documentation about this feature can be found \
-here: https://www.whonix.org/wiki/Desktop"
+desktop environment by toggling how much RAM is available to Gateway. \
+Documentation about this feature can be found here: \
+https://www.whonix.org/wiki/Desktop"
       fi
    fi
 
