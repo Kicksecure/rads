@@ -1,3 +1,22 @@
+commit 57d641e7ccccc5cd4da8214d5fa8840c56a16233
+Merge: 499b63b a503812
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Jul 26 15:26:35 2017 +0000
+
+    Merge remote-tracking branch 'origin/master'
+
+commit a5038120d30d7ce052c2ce9effaa9061ae8cacc7
+Author: Jason J. Ayala P <JasonJAyalaP+Github@Gmail.com>
+Date:   Fri Jun 16 10:51:20 2017 -0500
+
+    196 -> 256
+
+commit 499b63bbb72739c0f6d11a10797588521a9d6505
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Mar 6 16:15:29 2017 +0000
+
+    bumped changelog version
+
 commit 300d25beb00c974c1979167a9513919fcf8c66ae
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Mar 6 15:01:30 2017 +0000
