@@ -118,8 +118,8 @@ ram-adjusted-desktop-starter() {
          rads_no_x_default_dm="1"
       fi
    fi
-   if [ -z "$rads_minium_ram" ]; then
-      rads_minium_ram="500"
+   if [ -z "$rads_minimum_ram" ]; then
+      rads_minimum_ram="500"
    fi
    if [ -z "$rads_start_display_manager" ]; then
       rads_start_display_manager="1"
@@ -191,11 +191,11 @@ configuration folder, not starting a desktop environment."
    fi
 
    if [ ! "$rads_skip_ram_test" = "1" ]; then
-      if [ "$total_ram" -lt "$rads_minium_ram" ]; then
+      if [ "$total_ram" -lt "$rads_minimum_ram" ]; then
          echo "[${green}INFO${reset}] Not starting login manager \
 (graphical desktop environment) ($rads_display_manager), \
 because there is only $total_ram MB total RAM. (A minimum of \
-$rads_minium_ram MB total RAM is configured in /etc/rads.d/ \
+$rads_minimum_ram MB total RAM is configured in /etc/rads.d/ \
 configuration folder.)"
          create_status_file_no_start_x
          exit 0
