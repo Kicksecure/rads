@@ -6,7 +6,7 @@
 #export DH_VERBOSE=1
 
 %:
-	dh $@ --with=systemd --with=config-package
+	dh $@ --with=config-package
 
 override_dh_systemd_start:
 	dh_systemd_start --no-start
