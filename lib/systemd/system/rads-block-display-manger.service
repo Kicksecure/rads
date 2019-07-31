@@ -12,8 +12,8 @@ Before=display-manager.service
 
 [Service]
 Type=oneshot
-ExecStartPre=/bin/mkdir -p /var/run/rads
-ExecStart=/bin/touch /var/run/rads/rads-block-display-manger-startup.status
+ExecStartPre=/bin/mkdir -p /run/rads
+ExecStart=/bin/touch /run/rads/rads-block-display-manger-startup.status
 RemainAfterExit=yes
 
 [Install]

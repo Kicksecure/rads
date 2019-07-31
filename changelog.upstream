@@ -547,10 +547,10 @@ commit 76f26d2650f70ad6e5ce01bb436f0e0621241e03
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Dec 19 20:16:02 2015 +0100
 
-    use /var/run/rads rather than /tmp/rads
+    use /run/rads rather than /tmp/rads
     
     Now that rads is started by a systemd unit file, it is saner to write to
-    /var/run rather than /tmp.
+    /run rather than /tmp.
     
     https://forums.whonix.org/t/bug-report-ram-adjusted-desktop-start
 

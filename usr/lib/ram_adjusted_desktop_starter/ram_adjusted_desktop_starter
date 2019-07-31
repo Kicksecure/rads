@@ -75,19 +75,19 @@ colors() {
 }
 
 delete_display_manager_startup_block() {
-   rm --force "/var/run/rads/rads-block-display-manger-startup.status"
+   rm --force "/run/rads/rads-block-display-manger-startup.status"
 }
 
 create_status_file_no_start_x() {
-   mkdir --parents "/var/run/rads"
-   touch "/var/run/rads/no_start_x.status"
-   rm --force "/var/run/rads/start_x.status"
+   mkdir --parents "/run/rads"
+   touch "/run/rads/no_start_x.status"
+   rm --force "/run/rads/start_x.status"
 }
 
 create_status_file_start_x() {
-   mkdir --parents "/var/run/rads"
-   rm --force "/var/run/rads/no_start_x.status"
-   touch "/var/run/rads/start_x.status"
+   mkdir --parents "/run/rads"
+   rm --force "/run/rads/no_start_x.status"
+   touch "/run/rads/start_x.status"
 }
 
 ram-adjusted-desktop-starter() {
