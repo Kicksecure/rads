@@ -1,3 +1,15 @@
+commit 78333cbea0feb4a2596830f67be8d0c3980530c5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Sep 9 12:51:57 2019 +0000
+
+    --no-restart-after-upgrade --no-stop-on-upgrade --no-restart-on-upgrade
+
+commit fc03cdc93413d03066ae94c4f056ddbd9a3d69fa
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 1 11:59:48 2019 +0000
+
+    bumped changelog version
+
 commit af343663a057d963c55b67efe51c7ccf42ce1e53
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Aug 1 11:13:41 2019 +0000
