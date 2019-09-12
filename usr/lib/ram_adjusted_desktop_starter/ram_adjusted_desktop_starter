@@ -249,9 +249,6 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
          service_3_exit_code="0"
          systemctl --no-pager start "$rads_display_manager" || { service_3_exit_code="$?" ; true; };
 
-         echo "[${green}INFO${reset}] Starting login manager \
-(graphical desktop environment) $rads_display_manager..."
-
          if [ "$service_3_exit_code" = "0" ]; then
             true "INFO: Successfully started $rads_display_manager."
             create_status_file_start_x
