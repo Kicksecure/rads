@@ -1,3 +1,9 @@
+rads (3:4.7-1) unstable; urgency=medium
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@riseup.net>  Thu, 12 Sep 2019 12:50:06 +0000
+
 rads (3:4.6-1) unstable; urgency=medium
 
   * New upstream version (local package).
