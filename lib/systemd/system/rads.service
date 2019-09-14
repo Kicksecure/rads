@@ -14,7 +14,11 @@ ExecStart=-/usr/lib/ram_adjusted_desktop_starter/ram_adjusted_desktop_starter
 ExecStartPost=/bin/rm --force /run/rads/rads-block-display-manger-startup.status
 RemainAfterExit=yes
 StandardOutput=journal+console
-StandardInput=tty-force
+
+## This breaks 'rads_wait=0'.
+## Sep 14 08:14:24 host systemd[488]: rads.service: Failed to set up standard input: Inappropriate ioctl for device
+## Sep 14 08:14:24 host systemd[488]: rads.service: Failed at step STDIN spawning /usr/lib/ram_adjusted_desktop_starter/ram_adjusted_desktop_starter: Inappropriate ioctl for device
+#StandardInput=tty-force
 
 [Install]
 WantedBy=multi-user.target
