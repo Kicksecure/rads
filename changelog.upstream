@@ -1,3 +1,24 @@
+commit 40e1ed46fd803f472b9d938ee24f71a25dce3586
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Sep 14 13:10:54 2019 +0000
+
+    Break 'rads_wait=0'.
+    
+    Due to:
+    
+    Sep 14 08:14:24 host systemd[488]: rads.service: Failed to set up standard input: Inappropriate ioctl for device
+    Sep 14 08:14:24 host systemd[488]: rads.service: Failed at step STDIN spawning /usr/lib/ram_adjusted_desktop_starter/ram_adjusted_desktop_starter: Inappropriate ioctl for device
+    
+    Therefore commented out:
+    
+    StandardInput=tty-force
+
+commit 8c3c0b63df4d1f23cd168188d4ba1b1bbd701e33
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Sep 12 12:50:06 2019 +0000
+
+    bumped changelog version
+
 commit 442c26417e03339ca7004d776c97eff43852c642
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Sep 12 04:12:56 2019 -0400
