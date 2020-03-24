@@ -1,3 +1,15 @@
+commit bc6a9fc0d821804bb82fe1649adc16e3921f693f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Mar 24 03:44:32 2020 -0400
+
+    /usr/local/etc/rads.d/*.conf
+
+commit 48cc03354d23ed18e4d7129002373b0b5306b22f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Sep 14 13:20:25 2019 +0000
+
+    bumped changelog version
+
 commit 40e1ed46fd803f472b9d938ee24f71a25dce3586
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Sep 14 13:10:54 2019 +0000
