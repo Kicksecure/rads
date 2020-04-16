@@ -212,7 +212,7 @@ A Gateway without graphical desktop environment works as good as one with, \
 it's just not that convenient. If you want, you can sometimes start a graphical \
 desktop environment by toggling how much RAM is available to Gateway. \
 Documentation about this feature can be found here: \
-https://www.whonix.org/wiki/Desktop"
+https://www.whonix.org/wiki/rads"
       fi
    fi
 
