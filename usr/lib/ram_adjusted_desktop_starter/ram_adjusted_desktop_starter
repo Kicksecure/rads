@@ -98,16 +98,13 @@ ram-adjusted-desktop-starter() {
       source "$i"
    done
 
-   ## Sanity Tests, Defaults, Debugging
-   if [ -z "$rads_debug" ]; then
-      rads_debug="0"
-   fi
+   [ -n "$rads_debug" ] || rads_debug="0"
    if [ "$rads_debug" = "1" ]; then
       set -x
    fi
-   if [ -z "$x_default_dm_config_file" ]; then
-      x_default_dm_config_file="/etc/X11/default-display-manager"
-   fi
+
+   [ -n "$x_default_dm_config_file" ] || x_default_dm_config_file="/etc/X11/default-display-manager"
+
    if [ -z "$rads_display_manager" ]; then
       if [ -f "$x_default_dm_config_file" ]; then
          rads_display_manager="$(basename "$(cat "$x_default_dm_config_file")")"
@@ -118,21 +115,12 @@ ram-adjusted-desktop-starter() {
          rads_no_x_default_dm="1"
       fi
    fi
-   if [ -z "$rads_minimum_ram" ]; then
-      rads_minimum_ram="500"
-   fi
-   if [ -z "$rads_start_display_manager" ]; then
-      rads_start_display_manager="1"
-   fi
-   if [ -z "$rads_skip_ram_test" ]; then
-      rads_skip_ram_test="0"
-   fi
-   if [ -z "$rads_wait" ]; then
-      rads_wait="1"
-   fi
-   if [ -z "$rads_wait_seconds" ]; then
-      rads_wait_seconds="10"
-   fi
+
+   [ -n "$rads_minimum_ram" ] || rads_minimum_ram="500"
+   [ -n "$rads_start_display_manager" ] || rads_start_display_manager="1"
+   [ -n "$rads_skip_ram_test" ] || rads_skip_ram_test="0"
+   [ -n "$rads_wait" ] || rads_wait="1"
+   [ -n "$rads_wait_seconds" ] || rads_wait_seconds="10"
 
    ## {{ Expand PATH variable. Otherwise for example "/usr/sbin/lightdm" could
    ## not be detected below using "command -v".
@@ -141,46 +129,32 @@ ram-adjusted-desktop-starter() {
    export PATH
    ## }}
 
-   command_v_exit_code="0"
-   command -v "$rads_display_manager" >/dev/null || { command_v_exit_code="$?" ; true; };
-
-   if [ ! "$command_v_exit_code" = "0" ]; then
-      if [ "$rads_debug" = "1" ]; then
-         true "INFO: display manager \
+   if ! command -v "$rads_display_manager" >/dev/null ; then
+      true "INFO: display manager \
 $rads_display_manager configured in /etc/rads.d/ \
 configuration folder does not exist. Not starting a desktop environment."
-      fi
       create_status_file_no_start_x
       exit 0
    fi
 
    if [ "$rads_no_x_default_dm" = "1" ]; then
-      if [ "$rads_debug" = "1" ]; then
-         true "INFO: config file \
+      true "INFO: config file \
 $x_default_dm_config_file \
 does not exist. Probably no desktop environment installed. Not starting a desktop environment."
-      fi
       create_status_file_no_start_x
       exit 0
    fi
 
-   service_1_exit_code="0"
-   systemctl --no-pager status "$rads_display_manager" >/dev/null || { service_1_exit_code="$?" ; true; };
-
-   if [ "$service_1_exit_code" = "0" ]; then
-      if [ "$rads_debug" = "1" ]; then
-         true "INFO: \
+   if systemctl --no-pager status "$rads_display_manager" >/dev/null ; then
+      true "INFO: \
 Not starting $rads_display_manager, already running."
-      fi
       exit 0
    fi
 
    if ! systemctl --no-pager is-enabled "$rads_display_manager" &>/dev/null ; then
-      if [ "$rads_debug" = "1" ]; then
-         true "INFO: \
+      true "INFO: \
 Not starting $rads_display_manager, since disabled.
 ( to enable, run: sudo systemctl enable $rads_display_manager )"
-      fi
       exit 0
    fi
 
@@ -190,11 +164,9 @@ Not starting $rads_display_manager, since disabled.
    total_ram="$(free -m | sed  -n -e '/^Mem:/s/^[^0-9]*\([0-9]*\) .*/\1/p')"
 
    if [ "$rads_start_display_manager" = "0" ]; then
-      if [ "$rads_debug" = "1" ]; then
-         true "INFO: \
+      true "INFO: \
 rads_start_display_manager is set to 0 in /etc/rads.d/ \
 configuration folder, not starting a desktop environment."
-      fi
       create_status_file_no_start_x
       exit 0
    fi
@@ -228,9 +200,7 @@ https://www.whonix.org/wiki/rads"
    ## Fallback.
    read_exit_code="0"
    if [ "$rads_wait" = "0" ]; then
-      if [ "$rads_debug" = "1" ]; then
-         true "INFO: Waiting feature disabled."
-      fi
+      true "INFO: Waiting feature disabled."
    else
       echo "[${green}INFO${reset}] Starting login manager \
 (graphical desktop environment) $rads_display_manager in \
@@ -244,10 +214,7 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
    fi
 
    if [ "$read_exit_code" = "0" ] || [ "$read_exit_code" = "142" ]; then
-      service_2_exit_code="0"
-      systemctl --no-pager status "$rads_display_manager" >/dev/null || { service_2_exit_code="$?" ; true; };
-
-      if [ "$service_2_exit_code" = "0" ]; then
+      if systemctl --no-pager status "$rads_display_manager" >/dev/null ; then
          echo "[${green}INFO${reset}] $rads_display_manager already running, not starting."
       else
          echo "[${green}INFO${reset}] Trying to start login manager \
@@ -255,10 +222,7 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
 
          delete_display_manager_startup_block
 
-         service_3_exit_code="0"
-         systemctl --no-pager start "$rads_display_manager" || { service_3_exit_code="$?" ; true; };
-
-         if [ "$service_3_exit_code" = "0" ]; then
+         if systemctl --no-pager start "$rads_display_manager" ; then
             true "INFO: Successfully started $rads_display_manager."
             create_status_file_start_x
          else
@@ -280,9 +244,7 @@ Could not start $rads_display_manager. Please report this bug!"
       exit 0
    fi
 
-   if [ "$rads_debug" = "1" ]; then
-      true "INFO: End."
-   fi
+   true "INFO: End."
    exit 0
 }
 
