@@ -1,3 +1,23 @@
+commit 0cd4763241a9db806de94f977b314d79c40f3ccf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jul 24 14:58:39 2021 -0400
+
+    code simplification
+
+commit 74fbd3b6a460de94bbdfedd1d863dba9bee3d855
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jul 24 14:47:48 2021 -0400
+
+    do not start display manager if it was disabled
+    
+    (for example using `sudo systemctl disable lightdm`)
+
+commit 6e3ee64e5fd2b078f6a43d9985e66ab6f8552ec2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Mar 17 12:26:50 2021 -0400
+
+    bumped changelog version
+
 commit d01e78f16e934d190befe28c979803fbe42d7b65
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Mar 17 12:26:49 2021 -0400
