@@ -175,6 +175,15 @@ Not starting $rads_display_manager, already running."
       exit 0
    fi
 
+   if ! systemctl --no-pager is-enabled "$rads_display_manager" &>/dev/null ; then
+      if [ "$rads_debug" = "1" ]; then
+         true "INFO: \
+Not starting $rads_display_manager, since disabled.
+( to enable, run: sudo systemctl enable $rads_display_manager )"
+      fi
+      exit 0
+   fi
+
    ## Check how much RAM the system has in total.
    ## Thanks to:
    ## http://stackoverflow.com/a/10277712
