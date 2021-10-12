@@ -131,7 +131,7 @@ ram-adjusted-desktop-starter() {
 
    if ! command -v "$rads_display_manager" >/dev/null ; then
       true "INFO: display manager \
-$rads_display_manager configured in /etc/rads.d/ \
+'$rads_display_manager' configured in /etc/rads.d/ \
 configuration folder does not exist. Not starting a desktop environment."
       create_status_file_no_start_x
       exit 0
