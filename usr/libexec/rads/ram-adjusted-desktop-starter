@@ -16,6 +16,7 @@ trap "error_handler_rads" ERR
 
 exit_handler_rads() {
    delete_display_manager_startup_block
+   echo "INFO: Missing login prompt? Switch virtual console (tty2). See: ${PROJECT_HOMEPAGE}/wiki/vu"
 }
 
 trap "exit_handler_rads" EXIT
@@ -130,6 +131,10 @@ ram-adjusted-desktop-starter() {
    [ -n "$rads_wait_seconds" ] || rads_wait_seconds="10"
    [ -n "$rads_no_swtich_vt" ] || rads_no_swtich_vt="0"
    [ -n "$rads_vt" ] || rads_vt="2"
+
+   if test -x /usr/libexec/helper-scripts/origins-parser ; then
+      source /usr/libexec/helper-scripts/origins-parser
+   fi
 
    ## {{ Expand PATH variable. Otherwise for example "/usr/sbin/lightdm" could
    ## not be detected below using "command -v".
