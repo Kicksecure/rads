@@ -82,6 +82,13 @@ create_status_file_no_start_x() {
    mkdir --parents "/run/rads"
    touch "/run/rads/no_start_x.status"
    rm --force "/run/rads/start_x.status"
+   if [ "$rads_no_swtich_vt" = "1" ]; then
+      true "INFO: Not switching virtual terminal because rads_no_swtich_vt=1."
+      return 0
+   fi
+   echo "INFO: Switching to virtual terminal (vt) '$rads_vt'."
+   ## https://forums.whonix.org/t/no-login-prompt-getty-started-on-tty1-anymore-in-whonix-16-debian-bullseye-based/12475
+   chvt "$rads_vt"
 }
 
 create_status_file_start_x() {
@@ -121,6 +128,8 @@ ram-adjusted-desktop-starter() {
    [ -n "$rads_skip_ram_test" ] || rads_skip_ram_test="0"
    [ -n "$rads_wait" ] || rads_wait="1"
    [ -n "$rads_wait_seconds" ] || rads_wait_seconds="10"
+   [ -n "$rads_no_swtich_vt" ] || rads_no_swtich_vt="0"
+   [ -n "$rads_vt" ] || rads_vt="2"
 
    ## {{ Expand PATH variable. Otherwise for example "/usr/sbin/lightdm" could
    ## not be detected below using "command -v".
