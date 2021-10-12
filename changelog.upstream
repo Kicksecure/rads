@@ -1,3 +1,59 @@
+commit 9bebad7d1e8dd8cb0cdc5244f19203be3045c667
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 12 17:15:11 2021 -0400
+
+    add hint how to switch virtual console
+    
+    https://www.whonix.org/wiki/Desktop#Virtual_Consoles
+
+commit 0fdcee7f930e6f7af5e838b3a273b9b76accd904
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 12 17:04:47 2021 -0400
+
+    add workaround for issue "no login prompt / getty started on tty1 anymore in Whonix 16 (Debian bullseye based)"
+    
+    gnome's gdm display manager's systemd unit replaces tty1 even in case gdm is not started. This workaround
+    essentially runs `chvt 2` in case rads does not start a display manager such as gdm (in case there is not
+    enough RAM). Thereby behavior of user being greeted with a agetty login prompt has been restored.
+    
+    https://forums.whonix.org/t/no-login-prompt-getty-started-on-tty1-anymore-in-whonix-16-debian-bullseye-based/12475
+
+commit 08eee3d0db601cd2615226a7919204ac94147f2f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 12 16:55:28 2021 -0400
+
+    output
+
+commit 0010a59b1a35a646047ca399a2bec564fc51ab35
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 12 16:54:46 2021 -0400
+
+    output
+
+commit 96bddc842cee4b61dbdc06cec099c432c36524ad
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 12 16:54:31 2021 -0400
+
+    update
+
+commit c522eb9d7a86673c02a2b896bb9bfc6cdad81fdf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 12 16:53:12 2021 -0400
+
+    output
+
+commit 9edbcc5984e0f2f7009c5c90b416c07bd7e89ac4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 12 16:49:06 2021 -0400
+
+    output
+
+commit 856ec6a244ff58d0bb163456b612140e98fdc9cd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 12 11:53:49 2021 -0400
+
+    bumped changelog version
+
 commit 476874b9a97c5fd14c721b33ff9468c1af7acfad
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Sep 11 16:31:37 2021 -0400
