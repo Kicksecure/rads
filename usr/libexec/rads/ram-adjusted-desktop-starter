@@ -147,13 +147,13 @@ does not exist. Probably no desktop environment installed. Not starting a deskto
 
    if systemctl --no-pager status "$rads_display_manager" >/dev/null ; then
       true "INFO: \
-Not starting $rads_display_manager, already running."
+Not starting '$rads_display_manager', already running."
       exit 0
    fi
 
    if ! systemctl --no-pager is-enabled "$rads_display_manager" &>/dev/null ; then
       true "INFO: \
-Not starting $rads_display_manager, since disabled.
+Not starting '$rads_display_manager', since disabled.
 ( to enable, run: sudo systemctl enable $rads_display_manager )"
       exit 0
    fi
