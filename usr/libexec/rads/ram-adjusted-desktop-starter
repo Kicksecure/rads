@@ -174,7 +174,7 @@ configuration folder, not starting a desktop environment."
    if [ ! "$rads_skip_ram_test" = "1" ]; then
       if [ "$total_ram" -lt "$rads_minimum_ram" ]; then
          echo "[${green}INFO${reset}] Not starting display manager \
-(graphical desktop environment) ($rads_display_manager), \
+(graphical desktop environment) ('$rads_display_manager'), \
 because there is only $total_ram MB total RAM. (A minimum of \
 $rads_minimum_ram MB total RAM is configured in /etc/rads.d/ \
 configuration folder.)"
@@ -203,7 +203,7 @@ https://www.whonix.org/wiki/rads"
       true "INFO: Waiting feature disabled."
    else
       echo "[${green}INFO${reset}] Starting display manager \
-(graphical desktop environment) $rads_display_manager in \
+(graphical desktop environment) '$rads_display_manager' in \
 $rads_wait_seconds seconds, unless you abort using ctrl + c. \
 This can be disabled or configured in /etc/rads.d/ configuration folder."
       read -t "$rads_wait_seconds" read_input || { read_exit_code="$?" ; true; };
@@ -215,19 +215,19 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
 
    if [ "$read_exit_code" = "0" ] || [ "$read_exit_code" = "142" ]; then
       if systemctl --no-pager status "$rads_display_manager" >/dev/null ; then
-         echo "[${green}INFO${reset}] $rads_display_manager already running, not starting."
+         echo "[${green}INFO${reset}] '$rads_display_manager' already running, not starting."
       else
          echo "[${green}INFO${reset}] Trying to start display manager \
-(graphical desktop environment) $rads_display_manager..."
+(graphical desktop environment) '$rads_display_manager'..."
 
          delete_display_manager_startup_block
 
          if systemctl --no-pager start "$rads_display_manager" ; then
-            true "INFO: Successfully started $rads_display_manager."
+            true "INFO: Successfully started '$rads_display_manager'."
             create_status_file_start_x
          else
             echo "[${red}${bold}ERROR${reset}] \
-Could not start $rads_display_manager. Please report this bug!"
+Could not start '$rads_display_manager'. Please report this bug!"
          fi
       fi
    else
@@ -235,7 +235,7 @@ Could not start $rads_display_manager. Please report this bug!"
       ## Make a new line so the ^C stands alone.
       echo ""
       echo "[${green}INFO${reset}] Manually aborted start of display manager \
-(graphical desktop environment) $rads_display_manager."
+(graphical desktop environment) '$rads_display_manager'."
       echo "[${green}INFO${reset}] Feel free to manually start a display manager \
 (graphical desktop environment) later.
     sudo service $rads_display_manager start"
