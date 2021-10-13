@@ -1,3 +1,21 @@
+commit 581924ea8aee0f6eb000cfaccad2626c56c8b45b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 13 12:07:19 2021 -0400
+
+    output
+
+commit e5ef3c00cdcffd4b6c2cb58cc79a5a9d3817c7c6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 13 12:06:27 2021 -0400
+
+    output
+
+commit 068af3512163b1364f75118df1bcfc1335741122
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 12 17:15:48 2021 -0400
+
+    bumped changelog version
+
 commit 9bebad7d1e8dd8cb0cdc5244f19203be3045c667
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Oct 12 17:15:11 2021 -0400
