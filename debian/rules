@@ -12,12 +12,12 @@
 ##
 ## dh_installsystemd manpage:
 ## --no-stop-on-upgrade
-## Do not stop service on upgrade. This has the side-effect of not restarting the service as a part of the upgrade.
-## dh_installsystemd
+## "Do not stop service on upgrade. This has the side-effect of not restarting the service as a part of the upgrade."
+## dh_installsystemd manpage:
 ## --no-start
-## Do not start the unit file after upgrades and after initial installation ([...]).
+## "Do not start the unit file after upgrades and after initial installation ([...]).
 ## Note that this option does not affect whether the services are enabled.
-## Please remember to also use --no-enable if the services should not be enabled.
+## Please remember to also use --no-enable if the services should not be enabled."
 override_dh_installsystemd:
 	dh_installsystemd --no-start --no-stop-on-upgrade
 
