@@ -8,7 +8,7 @@
 %:
 	dh $@ --with=config-package
 
-## After installation, enable, but do not start.
+## After installation, enable the systemd unit file, but do not start.
 ##
 ## dh_installsystemd manpage:
 ## --no-stop-on-upgrade
