@@ -1,3 +1,43 @@
+commit d9e2c90037f428b3a4d972ffe5978aeab55a54bd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 14 11:19:36 2021 -0400
+
+    comment
+
+commit b481326887eec161bcabf52667cd73536c520848
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 14 11:16:51 2021 -0400
+
+    comment
+
+commit d058eb1d917256369244cdf0e5c70cbabb509cf5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 14 11:15:25 2021 -0400
+
+    comment
+
+commit c79945c2103b5c049f6411747b6aa472a65d726d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 14 11:12:32 2021 -0400
+
+    remove unnecessary `--no-restart-after-upgrade`
+    
+    ("Undo a previous --restart-after-upgrade (or the default of compat 10). If no other options are given, this will cause the service to be stopped in the prerm script and started again in the postinst script.")
+
+commit 372540203b789c1b6eb615f5ad942d76a52c0796
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 14 11:04:54 2021 -0400
+
+    remove `--no-restart-on-upgrade`
+    
+    ("Note that the --no-restart-on-upgrade alias is deprecated and will be removed in compat 14. This is to avoid confusion with the --no-restart-after-upgrade option.")
+
+commit b39d95ad2c4d540ad943dd1a8ffef7efa5b30902
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 13 12:58:07 2021 -0400
+
+    bumped changelog version
+
 commit 581924ea8aee0f6eb000cfaccad2626c56c8b45b
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Oct 13 12:07:19 2021 -0400
