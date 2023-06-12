@@ -1,3 +1,22 @@
+commit a2575585fd2285f135442bc03a8452426dffef58
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jun 12 14:52:00 2023 +0000
+
+    update copyright year
+
+commit 5c807e5a1ec72c8c32b07c5fd8284557260f6214
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jun 12 14:48:03 2023 +0000
+
+    abolish /rw/config parsing
+    (Does not influence Qubes specific /rw/config parsing.)
+
+commit 71f56d5cafb7a5b58deaf9654450e2e3de50891b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 8 11:04:24 2022 -0400
+
+    bumped changelog version
+
 commit a7db6bcc7c17bd8c75fe4d297b6e68e1e79aa91a
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue May 31 09:07:48 2022 -0400
