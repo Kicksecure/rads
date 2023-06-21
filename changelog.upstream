@@ -1,3 +1,15 @@
+commit f6f0784063078cd62a143fe0b702f8f343691525
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 09:11:29 2023 +0000
+
+    bookworm
+
+commit 19857ab6a283011e3d64eee7de6def344a5732c2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Jun 16 11:07:43 2023 +0000
+
+    bumped changelog version
+
 commit 48519006dc5b0f6547a92d0db1bd86cb7154e186
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Jun 16 10:49:04 2023 +0000
