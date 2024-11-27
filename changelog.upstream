@@ -1,3 +1,27 @@
+commit 8fc95b168af509f3e9acfb4fb8d2cb20707b1c76
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 27 07:40:36 2024 -0500
+
+    comments
+
+commit bc432998742b15b6e37fa3380e766df355bba887
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 27 07:34:41 2024 -0500
+
+    fix type in variable name: `rads_no_swtich_vt` -> `rads_no_switch_vt`
+
+commit bbac5d452419399008aeba839675a2ba15ad19c8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 27 07:33:32 2024 -0500
+
+    fix: [ -n "$rads_minimum_ram" ] || rads_minimum_ram="480"
+
+commit 4fb7a06867b1f72dc2d83ec60dbf797d813716af
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Feb 2 12:36:23 2024 +0000
+
+    bumped changelog version
+
 commit 6b3db9baa2c74919c8ce786a3f6a67e84e61c194
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Feb 2 07:32:31 2024 -0500
