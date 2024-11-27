@@ -125,7 +125,7 @@ ram-adjusted-desktop-starter() {
       fi
    fi
 
-   [ -n "$rads_minimum_ram" ] || rads_minimum_ram="500"
+   [ -n "$rads_minimum_ram" ] || rads_minimum_ram="480"
    [ -n "$rads_start_display_manager" ] || rads_start_display_manager="1"
    [ -n "$rads_skip_ram_test" ] || rads_skip_ram_test="0"
    [ -n "$rads_wait" ] || rads_wait="1"
