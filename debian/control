@@ -9,7 +9,7 @@ Build-Depends: debhelper (>= 13.11.6), debhelper-compat (= 13), config-package-d
 Homepage: https://www.kicksecure.com/wiki/RAM_Adjusted_Desktop_Starter
 Vcs-Browser: https://github.com/Kicksecure/rads
 Vcs-Git: https://github.com/Kicksecure/rads.git
-Standards-Version: 4.6.2
+Standards-Version: 4.7.2
 Rules-Requires-Root: no
 
 Package: rads
