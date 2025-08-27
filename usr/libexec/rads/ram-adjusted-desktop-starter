@@ -79,10 +79,10 @@ delete_display_manager_startup_block() {
    rm --force "/run/rads/rads-block-display-manger-startup.status"
 }
 
-create_status_file_no_start_x() {
+create_status_file_no_start_dm() {
    mkdir --parents "/run/rads"
-   touch "/run/rads/no_start_x.status"
-   rm --force "/run/rads/start_x.status"
+   touch "/run/rads/no_start_dm.status"
+   rm --force "/run/rads/start_dm.status"
    if [ "$rads_no_switch_vt" = "1" ]; then
       true "INFO: Not switching virtual terminal because rads_no_switch_vt=1."
       return 0
@@ -93,10 +93,10 @@ create_status_file_no_start_x() {
    echo -n "OK."
 }
 
-create_status_file_start_x() {
+create_status_file_start_dm() {
    mkdir --parents "/run/rads"
-   rm --force "/run/rads/no_start_x.status"
-   touch "/run/rads/start_x.status"
+   rm --force "/run/rads/no_start_dm.status"
+   touch "/run/rads/start_dm.status"
 }
 
 ram-adjusted-desktop-starter() {
@@ -115,13 +115,17 @@ ram-adjusted-desktop-starter() {
    [ -n "$x_default_dm_config_file" ] || x_default_dm_config_file="/etc/X11/default-display-manager"
 
    if [ -z "$rads_display_manager" ]; then
-      if [ -f "$x_default_dm_config_file" ]; then
+      ## greetd is the only supported Wayland greeter. Look for it, use it if
+      ## available.
+      if [ -f /usr/lib/systemd/system/greetd.service ]; then
+         rads_display_manager='greetd'
+      elif [ -f "$x_default_dm_config_file" ]; then
          rads_display_manager="$(basename "$(cat "$x_default_dm_config_file")")"
          if [ "$rads_display_manager" = "" ]; then
             rads_display_manager="lightdm"
          fi
       else
-         rads_no_x_default_dm="1"
+         rads_no_default_dm="1"
       fi
    fi
 
@@ -148,15 +152,16 @@ ram-adjusted-desktop-starter() {
       true "INFO: display manager \
 '$rads_display_manager' configured in /etc/rads.d/ \
 configuration folder does not exist. Not starting a desktop environment."
-      create_status_file_no_start_x
+      create_status_file_no_start_dm
       exit 0
    fi
 
-   if [ "$rads_no_x_default_dm" = "1" ]; then
+   if [ "$rads_no_default_dm" = "1" ]; then
       true "INFO: config file \
 $x_default_dm_config_file \
-does not exist. Probably no desktop environment installed. Not starting a desktop environment."
-      create_status_file_no_start_x
+does not exist and greetd is not installed. Probably no desktop environment \
+installed. Not starting a desktop environment."
+      create_status_file_no_start_dm
       exit 0
    fi
 
@@ -182,7 +187,7 @@ Not starting '$rads_display_manager', since disabled.
       true "INFO: \
 rads_start_display_manager is set to 0 in /etc/rads.d/ \
 configuration folder, not starting a desktop environment."
-      create_status_file_no_start_x
+      create_status_file_no_start_dm
       exit 0
    fi
 
@@ -193,7 +198,7 @@ configuration folder, not starting a desktop environment."
 because there is only $total_ram MB total RAM. (A minimum of \
 $rads_minimum_ram MB total RAM is configured in /etc/rads.d/ \
 configuration folder.)"
-         create_status_file_no_start_x
+         create_status_file_no_start_dm
          exit 0
       fi
    fi
@@ -239,7 +244,7 @@ This can be disabled or configured in /etc/rads.d/ configuration folder."
 
          if systemctl --no-pager start "$rads_display_manager" ; then
             true "INFO: Successfully started '$rads_display_manager'."
-            create_status_file_start_x
+            create_status_file_start_dm
          else
             echo "[${red}${bold}ERROR${reset}] \
 Could not start '$rads_display_manager'. Please report this bug!"
@@ -255,7 +260,7 @@ Could not start '$rads_display_manager'. Please report this bug!"
 (graphical desktop environment) later.
     sudo service $rads_display_manager start"
 
-      create_status_file_no_start_x
+      create_status_file_no_start_dm
       exit 0
    fi
 
