@@ -138,6 +138,9 @@ ram-adjusted-desktop-starter() {
    [ -n "$rads_vt" ] || rads_vt="2"
 
    if test -x /usr/libexec/helper-scripts/origins-parser ; then
+      ## sets: PROJECT_NAME
+      ## sets: PROJECT_HOMEPAGE
+      ## sets: derivative_major_release_version
       source /usr/libexec/helper-scripts/origins-parser
    fi
 
