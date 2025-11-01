@@ -1,3 +1,15 @@
+commit 8de3449061647dcb0a4ad187cc5d6fcb6270483b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 1 05:13:59 2025 -0400
+
+    remove unnecessary dependency on systemd
+
+commit 83cd61b98aa095359103bb86ab2597f9119c3051
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 24 14:10:55 2025 +0000
+
+    bumped changelog version
+
 commit 96daf63203d2363a69032a96ff35a9bf9e164a4a
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Sep 23 10:02:52 2025 -0400
