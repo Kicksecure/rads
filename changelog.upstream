@@ -1,3 +1,22 @@
+commit c0cbc42f512610c95922bfc1ff7045652619d849
+Merge: d04dcd7 b9e0192
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 5 02:24:36 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit b9e01920d748d08cfbe2d9d4804a9c493dd52c58
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Nov 4 23:26:43 2025 -0600
+
+    Increase RAM requirements for GUI, pause for five seconds after displaying low RAM warning
+
+commit d04dcd77d31af436973b739640342247fe6bdd88
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 1 09:17:41 2025 +0000
+
+    bumped changelog version
+
 commit 8de3449061647dcb0a4ad187cc5d6fcb6270483b
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Nov 1 05:13:59 2025 -0400
