@@ -129,7 +129,7 @@ ram-adjusted-desktop-starter() {
       fi
    fi
 
-   [ -n "$rads_minimum_ram" ] || rads_minimum_ram="480"
+   [ -n "$rads_minimum_ram" ] || rads_minimum_ram="710"
    [ -n "$rads_start_display_manager" ] || rads_start_display_manager="1"
    [ -n "$rads_skip_ram_test" ] || rads_skip_ram_test="0"
    [ -n "$rads_wait" ] || rads_wait="1"
@@ -201,6 +201,7 @@ configuration folder, not starting a desktop environment."
 because there is only $total_ram MB total RAM. (A minimum of \
 $rads_minimum_ram MB total RAM is configured in /etc/rads.d/ \
 configuration folder.)"
+         sleep 5
          create_status_file_no_start_dm
          exit 0
       fi
