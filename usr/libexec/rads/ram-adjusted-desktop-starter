@@ -120,7 +120,7 @@ ram-adjusted-desktop-starter() {
       if [ -f /usr/lib/systemd/system/greetd.service ]; then
          rads_display_manager='greetd'
       elif [ -f "$x_default_dm_config_file" ]; then
-         rads_display_manager="$(basename "$(cat "$x_default_dm_config_file")")"
+         rads_display_manager="$(basename -- "$(cat -- "$x_default_dm_config_file")")"
          if [ "$rads_display_manager" = "" ]; then
             rads_display_manager="lightdm"
          fi
@@ -184,7 +184,7 @@ Not starting '$rads_display_manager', since disabled.
    ## Check how much RAM the system has in total.
    ## Thanks to:
    ## http://stackoverflow.com/a/10277712
-   total_ram="$(free -m | sed  -n -e '/^Mem:/s/^[^0-9]*\([0-9]*\) .*/\1/p')"
+   total_ram="$(LC_ALL=C free -m | sed  -n -e '/^Mem:/s/^[^0-9]*\([0-9]*\) .*/\1/p')"
 
    if [ "$rads_start_display_manager" = "0" ]; then
       true "INFO: \
