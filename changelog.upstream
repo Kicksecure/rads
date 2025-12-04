@@ -1,3 +1,18 @@
+commit 4f5e6d447dbb1c48275b01d57f3e330d930426dc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Dec 4 08:44:02 2025 -0500
+
+    no longer switch to virtual terminal 2
+    as no longer required in Debian trixie
+    
+    https://forums.whonix.org/t/no-login-prompt-getty-started-on-tty1-anymore-in-whonix-16-debian-bullseye-based/12475
+
+commit 4a69aa01b96ed0e91b3eb68c6c2c8f433b52f373
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Dec 4 11:13:29 2025 +0000
+
+    bumped changelog version
+
 commit 45d742014264691a5a10f78c82b915b430e7ca97
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Dec 4 05:01:13 2025 -0500

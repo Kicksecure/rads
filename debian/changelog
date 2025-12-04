@@ -1,3 +1,9 @@
+rads (3:8.4-1) unstable; urgency=medium
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@whonix.org>  Thu, 04 Dec 2025 13:44:43 +0000
+
 rads (3:8.3-1) unstable; urgency=medium
 
   * New upstream version (local package).
