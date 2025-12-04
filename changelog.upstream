@@ -1,3 +1,15 @@
+commit 45d742014264691a5a10f78c82b915b430e7ca97
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Dec 4 05:01:13 2025 -0500
+
+    fix on systems with non-English system language
+
+commit 69a9bbb3ba824da4e81d1e0b592d2fea3445ae51
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 5 11:28:23 2025 +0000
+
+    bumped changelog version
+
 commit c0cbc42f512610c95922bfc1ff7045652619d849
 Merge: d04dcd7 b9e0192
 Author: Patrick Schleizer <adrelanos@whonix.org>
