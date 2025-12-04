@@ -16,7 +16,8 @@ trap "error_handler_rads" ERR
 
 exit_handler_rads() {
    delete_display_manager_startup_block
-   echo "INFO: Switch virtual console ('tty2'). See: ${PROJECT_HOMEPAGE}/wiki/vu"
+   #echo "INFO: Switch virtual console ('tty2'). See: ${PROJECT_HOMEPAGE}/wiki/vu"
+   return
 }
 
 trap "exit_handler_rads" EXIT
@@ -83,14 +84,16 @@ create_status_file_no_start_dm() {
    mkdir --parents "/run/rads"
    touch "/run/rads/no_start_dm.status"
    rm --force "/run/rads/start_dm.status"
-   if [ "$rads_no_switch_vt" = "1" ]; then
-      true "INFO: Not switching virtual terminal because rads_no_switch_vt=1."
-      return 0
-   fi
-   echo "INFO: Switching to virtual terminal ('tty${rads_vt}')..."
+
+   #if [ "$rads_no_switch_vt" = "1" ]; then
+      #true "INFO: Not switching virtual terminal because rads_no_switch_vt=1."
+      #return 0
+   #fi
+
+   #echo "INFO: Switching to virtual terminal ('tty${rads_vt}')..."
    ## https://forums.whonix.org/t/no-login-prompt-getty-started-on-tty1-anymore-in-whonix-16-debian-bullseye-based/12475
-   chvt "$rads_vt"
-   echo -n "OK."
+   #chvt "$rads_vt"
+   #echo -n "OK."
 }
 
 create_status_file_start_dm() {
