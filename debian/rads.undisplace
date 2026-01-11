@@ -1,5 +1,5 @@
 ## Copyright (C) 2012 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-## backwards compatiblity fix with Whonix <= 10.x
+## backwards compatibility fix with Whonix <= 10.x
 /etc/inittab.anondist
