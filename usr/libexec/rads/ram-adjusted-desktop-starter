@@ -148,7 +148,10 @@ ram-adjusted-desktop-starter() {
    fi
 
    ## {{ Expand PATH variable. Otherwise for example "/usr/sbin/lightdm" could
-   ## not be detected below using "command -v".
+   ##    not be detected below using "command -v".
+   ##    NOTE: The PATH= here not persistently affect the graphical session.
+   ##          rads essentially only executes 'systemctl start display-manager'.
+   ##          'systemctl' by design does not pass environment variables.
    PATH_OLD="$PATH"
    PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
    export PATH
