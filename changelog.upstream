@@ -1,3 +1,15 @@
+commit 55332063c2b9a494f7ea575b2fa02523f31c80f7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 23 04:09:56 2026 -0400
+
+    comment
+
+commit 7e049f9c29645f3a995cb217ff1c77d82b347a84
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Mar 28 09:50:35 2026 +0000
+
+    bumped changelog version
+
 commit 2fff6a25f77c7f046b1622568f1c516b81242c7a
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Mar 28 05:30:38 2026 -0400
@@ -34,7 +46,7 @@ Date:   Thu Dec 4 08:44:02 2025 -0500
 
     no longer switch to virtual terminal 2
     as no longer required in Debian trixie
-    
+
     https://forums.whonix.org/t/no-login-prompt-getty-started-on-tty1-anymore-in-whonix-16-debian-bullseye-based/12475
 
 commit 4a69aa01b96ed0e91b3eb68c6c2c8f433b52f373
@@ -250,7 +262,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Nov 11 13:41:28 2023 -0500
 
     change license to AGPL-3+
-    
+
     https://forums.whonix.org/t/license-change-to-agplv3/17455
 
 commit 1ab2c52af90f31f2707b3cf1956ab518d4c2fc3e
@@ -300,7 +312,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Jun 23 10:04:54 2023 +0000
 
     lightdm
-    
+
     https://forums.whonix.org/t/display-manager-lightdm-gdm3-sddm-or-no-display-manager-startx/12457
 
 commit 885b41e5be2360efaa12d8d9dd65c5a043cba88f
@@ -459,7 +471,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Oct 14 11:12:32 2021 -0400
 
     remove unnecessary `--no-restart-after-upgrade`
-    
+
     ("Undo a previous --restart-after-upgrade (or the default of compat 10). If no other options are given, this will cause the service to be stopped in the prerm script and started again in the postinst script.")
 
 commit 372540203b789c1b6eb615f5ad942d76a52c0796
@@ -467,7 +479,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Oct 14 11:04:54 2021 -0400
 
     remove `--no-restart-on-upgrade`
-    
+
     ("Note that the --no-restart-on-upgrade alias is deprecated and will be removed in compat 14. This is to avoid confusion with the --no-restart-after-upgrade option.")
 
 commit b39d95ad2c4d540ad943dd1a8ffef7efa5b30902
@@ -499,7 +511,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Oct 12 17:15:11 2021 -0400
 
     add hint how to switch virtual console
-    
+
     https://www.whonix.org/wiki/Desktop#Virtual_Consoles
 
 commit 0fdcee7f930e6f7af5e838b3a273b9b76accd904
@@ -507,11 +519,11 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Oct 12 17:04:47 2021 -0400
 
     add workaround for issue "no login prompt / getty started on tty1 anymore in Whonix 16 (Debian bullseye based)"
-    
+
     gnome's gdm display manager's systemd unit replaces tty1 even in case gdm is not started. This workaround
     essentially runs `chvt 2` in case rads does not start a display manager such as gdm (in case there is not
     enough RAM). Thereby behavior of user being greeted with a agetty login prompt has been restored.
-    
+
     https://forums.whonix.org/t/no-login-prompt-getty-started-on-tty1-anymore-in-whonix-16-debian-bullseye-based/12475
 
 commit 08eee3d0db601cd2615226a7919204ac94147f2f
@@ -609,7 +621,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Jul 24 14:47:48 2021 -0400
 
     do not start display manager if it was disabled
-    
+
     (for example using `sudo systemctl disable lightdm`)
 
 commit 6e3ee64e5fd2b078f6a43d9985e66ab6f8552ec2
@@ -707,14 +719,14 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Sep 14 13:10:54 2019 +0000
 
     Break 'rads_wait=0'.
-    
+
     Due to:
-    
+
     Sep 14 08:14:24 host systemd[488]: rads.service: Failed to set up standard input: Inappropriate ioctl for device
     Sep 14 08:14:24 host systemd[488]: rads.service: Failed at step STDIN spawning /usr/lib/ram_adjusted_desktop_starter/ram_adjusted_desktop_starter: Inappropriate ioctl for device
-    
+
     Therefore commented out:
-    
+
     StandardInput=tty-force
 
 commit 8c3c0b63df4d1f23cd168188d4ba1b1bbd701e33
@@ -872,18 +884,18 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Mar 1 14:32:40 2019 +0000
 
     add improved legal protections clauses
-    
+
     The license for software created by Whonix is the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version with additional terms applicable per GNU GPL version 3 section 7.
-    
+
     The additional terms are based on the Doom 3 license which is Debian refers to as `GPL-3+-with-id-software-additional-terms`, which is Debian DFSG [1] (The Debian Free Software Guidelines) approved and which is therefore suitable for Debian `main`. Whonix made applied minimal changes to it:
-    
+
     * Rewrite `The Doom 3 BFG Edition GPL Source Code` to the more common `this program` which is used throughout the GPL.
     * Added a "trump clause" [2], in other words, any conflicts or disputes between the additional terms and the GPLv3 shall be resolved in favor of the GPLv3 by adding `Notwithstanding any other provision of this License` (as mentioned in GPL FAQ [3]) at the beginning of the additional terms.
-    
+
     [1] https://www.debian.org/social_contract#guidelines
     [2] https://www.fsf.org/news/canonical-updated-licensing-terms
     [3] https://www.gnu.org/licenses/gpl-faq.html#v3Notwithstanding
-    
+
     For more considerations, see also:
     https://www.whonix.org/wiki/Dev/Licensing
 
@@ -898,7 +910,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Nov 28 09:23:35 2018 +0000
 
     disable rads_wait by default to speed up booting
-    
+
     rads is now less important that there is a downloadable CLI version
 
 commit 15b8e371b90281e56cc6e988d194648cf43ebdd4
@@ -1015,7 +1027,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Feb 21 22:18:36 2017 +0000
 
     use systemctl --no-pager to prevent blocking due to systemctl interactivity
-    
+
     https://phabricator.whonix.org/T637
 
 commit ac0621a8814a762ced4dee8fcf84ac4d3d6b7e69
@@ -1029,7 +1041,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Feb 17 15:28:01 2017 +0000
 
     add - to rads systemd unit ExecStart
-    
+
     To make sure ExecStartPost is run even if rads failed.
 
 commit e278732ae9af35449a9c700b29500f7a4964cb60
@@ -1043,7 +1055,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Feb 10 15:47:51 2017 +0000
 
     remove faketime from Build-Depends:
-    
+
     since no longer used for reproducible builds
 
 commit 2b411f2ae364ea90ca305000eae68e887fdc14a8
@@ -1087,7 +1099,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Feb 8 14:30:15 2017 +0000
 
     remove option rads_autostart_decision_feature
-    
+
     since that no longer works with the current systemd implementation
 
 commit 882db32049d9f095bfd789bd623a72e58c23d43e
@@ -1107,7 +1119,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Feb 5 19:27:48 2017 +0100
 
     remove duplicate [RAM Adjusted Desktop Starter] from output
-    
+
     since systemd already adds this
 
 commit 079badd4adaaa050716d6a108c1aa5d60da260f9
@@ -1199,7 +1211,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jan 8 03:27:20 2017 +0000
 
     fix, really add support for display managers started by systemd
-    
+
     abolish update-rc.d disabling unit files workaround
 
 commit cc68dac2e62704fb1956476e41f5e8063677ed03
@@ -1255,7 +1267,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Oct 12 23:46:39 2016 +0000
 
     add sane built-in defaults even if config files are non-existing
-    
+
     https://phabricator.whonix.org/T503
 
 commit 1700ad5103f60ada3b167956769fe11ebfa0e5cf
@@ -1263,7 +1275,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Aug 30 21:12:30 2016 +0000
 
     sudo --non-interactive
-    
+
     https://phabricator.whonix.org/T549
 
 commit 6fae949b418e10af496541d4a5af5b86c0cc6c61
@@ -1277,7 +1289,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Jun 2 11:54:05 2016 +0000
 
     do not use tput if variable TERM is empty
-    
+
     https://phabricator.whonix.org/T505
 
 commit 2cdb87a2589cb3a67229694f88143f3a84ac3c73
@@ -1321,10 +1333,10 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Dec 19 20:16:02 2015 +0100
 
     use /var/run/rads rather than /tmp/rads
-    
+
     Now that rads is started by a systemd unit file, it is saner to write to
     /var/run rather than /tmp.
-    
+
     https://forums.whonix.org/t/bug-report-ram-adjusted-desktop-start
 
 commit eb0679df7df68a1e432852420272c572ee5c0c5c
@@ -1356,9 +1368,9 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Nov 30 19:40:48 2015 +0000
 
     Only source configuration files that end with the '.conf' extension.
-    
+
     Thanks to @nrgaway for the suggestion!
-    
+
     https://phabricator.whonix.org/T286
 
 commit 282ed1473406a637f10eb526f20a70379389a584
